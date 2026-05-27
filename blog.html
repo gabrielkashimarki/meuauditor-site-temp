@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Conteúdo  MeuAuditor</title>
+<meta name="description" content="Artigos, materiais e análises sobre auditoria tributária, reforma tributária, Lucro Real, recuperação de créditos e gestão fiscal para escritórios contábeis.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy:   { DEFAULT:'#12324A', 900:'#0B2538', 800:'#12324A', 700:'#1D4663' },
+          accent: { DEFAULT:'#19B5E8', 600:'#19B5E8', 500:'#41C4EE', 400:'#7BD7F2' },
+          ice:    '#F9F9F9',
+          corp:   '#4F5963',
+        },
+        fontFamily: { sans: ['"Space Grotesk"','system-ui','sans-serif'] },
+        boxShadow: {
+          'card': '0 1px 2px rgba(79,89,99,.04), 0 8px 24px rgba(79,89,99,.06)',
+          'card-lg': '0 24px 60px -20px rgba(79,89,99,.25)',
+          'glow': '0 0 0 1px rgba(25,181,232,.25), 0 8px 32px rgba(25,181,232,.18)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @font-face { font-family: "Space Grotesk"; src: url("assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype"); font-weight: 300 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Gotham"; src: url("assets/fonts/Gotham-Book.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Gotham"; src: url("assets/fonts/Gotham-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+  .official-logo { display:block; width:auto; height:38px; object-fit:contain; }
+  footer .official-logo { height:42px; }
+  .bg-navy, .bg-navy\/85, .bg-navy-800, .bg-navy-800\/80, .bg-navy-700, .bg-navy-700\/60 { background-color:#12324A !important; }
+  .hover\:bg-navy:hover, .hover\:bg-navy-700:hover { background-color:#0B2538 !important; }
+  .text-navy { color:#12324A !important; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Space Grotesk',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .skip-link { position:absolute; left:-9999px; top:auto; }
+  .skip-link:focus { left:1rem; top:1rem; z-index:99; background:#19B5E8; color:#12324A; padding:.5rem 1rem; border-radius:.5rem; }
+  *:focus-visible { outline:2px solid #19B5E8; outline-offset:3px; border-radius:4px; }
+  .nav-blur { backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); }
+  .grid-bg { background-image: linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px); background-size: 48px 48px; }
+  .blob { position:absolute; border-radius:9999px; filter:blur(80px); opacity:.4; pointer-events:none; }
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity:1; transform:translateY(0); }
+  .pattern-a {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><path d='M16 52 L16 44 L26 22 L34 22 L48 50 L48 52 L40 52 L40 44 L30 44 L28 52 Z' fill='%23ffffff' fill-opacity='.04'/></svg>");
+    background-size: 64px 64px;
+  }
+  .card-thumb {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(25,181,232,.25), transparent 55%),
+      radial-gradient(circle at 75% 70%, rgba(25,181,232,.15), transparent 55%),
+      #4F5963;
+  }
+  .filter-chip[aria-pressed="true"]{ background:#12324A; color:#fff; border-color:#12324A; }
+  @media (prefers-reduced-motion: reduce){ .reveal { transition:none; opacity:1; transform:none; } }
+</style>
+</head>
+<body class="bg-ice text-navy">
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<!-- ═══ NAV ═══ -->
+<header class="fixed top-0 inset-x-0 z-50 nav-blur bg-navy/85 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5"><img class="official-logo" src="assets/logo/logo-light.png" alt="MeuAuditor"></a>
+    <nav class="hidden lg:flex items-center gap-9 text-sm text-white/70" aria-label="Principal">
+      <a href="index.html" class="hover:text-white transition">Início</a>
+      <a href="quem-somos.html" class="hover:text-white transition">Quem somos</a>
+      <a href="conteudo.html" class="text-white">Conteúdo</a>
+      <a href="planos.html" class="hover:text-white transition">Planos</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="#login" class="hidden sm:inline-flex items-center text-sm text-white/80 hover:text-white px-3 py-2 rounded-lg">Entrar</a>
+      <a href="index.html#demo" class="inline-flex items-center text-sm font-medium text-navy bg-accent hover:bg-accent-500 transition px-4 py-2 rounded-lg shadow-glow">Agendar demonstração</a>
+      <button id="navBtn" class="lg:hidden p-2 -mr-2 text-white" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-white/10 bg-navy">
+    <nav class="px-6 py-4 flex flex-col gap-3 text-sm text-white/80">
+      <a href="index.html" class="py-1.5">Início</a>
+      <a href="quem-somos.html" class="py-1.5">Quem somos</a>
+      <a href="conteudo.html" class="py-1.5 text-white">Conteúdo</a>
+      <a href="planos.html" class="py-1.5">Planos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ═══ HERO ═══ -->
+<section class="relative overflow-hidden bg-navy text-white pt-28 pb-14 lg:pt-36 lg:pb-20">
+  <div class="absolute inset-0 grid-bg opacity-50"></div>
+  <div class="absolute inset-0 pattern-a opacity-50"></div>
+  <span class="blob bg-accent/40 w-[420px] h-[420px] -top-32 -left-20" aria-hidden="true"></span>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <p class="text-xs tracking-[.22em] uppercase text-accent">Conteúdo</p>
+    <h1 class="mt-4 text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] max-w-4xl">
+      Inteligência fiscal para quem opera <span class="text-accent">escritório</span>.
+    </h1>
+    <p class="mt-6 text-lg text-white/70 max-w-2xl">
+      Artigos, análises e materiais práticos sobre auditoria tributária, recuperação de créditos, reforma tributária e gestão da operação fiscal.
+    </p>
+
+    <!-- Search -->
+    <div class="mt-10 max-w-2xl">
+      <label for="searchBlog" class="sr-only">Buscar no conteúdo</label>
+      <div class="relative">
+        <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-white/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 21l-4.3-4.3M17 11a6 6 0 11-12 0 6 6 0 0112 0z" stroke-linecap="round"/></svg>
+        <input id="searchBlog" type="search" placeholder="Buscar por tema, tributo ou regime..." class="w-full pl-12 pr-4 py-3.5 rounded-xl bg-white/[.06] border border-white/10 text-white placeholder-white/40 focus:bg-white/[.1] focus:border-accent transition text-sm">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FILTROS ═══ -->
+<section class="bg-white border-y border-black/[0.06] sticky top-16 z-40">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-4 flex items-center gap-3 overflow-x-auto">
+    <button class="filter-chip text-xs font-medium px-4 py-2 rounded-full border border-black/10 hover:bg-ice transition whitespace-nowrap" aria-pressed="true">Todos</button>
+    <button class="filter-chip text-xs font-medium px-4 py-2 rounded-full border border-black/10 hover:bg-ice transition whitespace-nowrap" aria-pressed="false">Reforma Tributária</button>
+    <button class="filter-chip text-xs font-medium px-4 py-2 rounded-full border border-black/10 hover:bg-ice transition whitespace-nowrap" aria-pressed="false">Lucro Real</button>
+    <button class="filter-chip text-xs font-medium px-4 py-2 rounded-full border border-black/10 hover:bg-ice transition whitespace-nowrap" aria-pressed="false">Recuperação de Créditos</button>
+    <button class="filter-chip text-xs font-medium px-4 py-2 rounded-full border border-black/10 hover:bg-ice transition whitespace-nowrap" aria-pressed="false">ICMS</button>
+    <button class="filter-chip text-xs font-medium px-4 py-2 rounded-full border border-black/10 hover:bg-ice transition whitespace-nowrap" aria-pressed="false">PIS / COFINS</button>
+    <button class="filter-chip text-xs font-medium px-4 py-2 rounded-full border border-black/10 hover:bg-ice transition whitespace-nowrap" aria-pressed="false">Gestão de escritório</button>
+    <button class="filter-chip text-xs font-medium px-4 py-2 rounded-full border border-black/10 hover:bg-ice transition whitespace-nowrap" aria-pressed="false">Reforma do PIS</button>
+  </div>
+</section>
+
+<!-- ═══ DESTAQUE ═══ -->
+<section class="bg-ice pt-14 pb-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <span class="text-xs tracking-[.18em] uppercase text-accent font-medium">Em destaque</span>
+    <article class="mt-5 reveal grid lg:grid-cols-12 gap-8 items-center p-6 lg:p-10 rounded-2xl bg-white border border-black/[0.06] shadow-card">
+      <div class="lg:col-span-5">
+        <div class="card-thumb aspect-[4/3] rounded-xl relative overflow-hidden">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <svg viewBox="0 0 200 200" class="w-2/3 h-2/3 opacity-80" aria-hidden="true">
+              <rect x="20" y="20" width="160" height="160" rx="16" fill="none" stroke="#19B5E8" stroke-width="2" stroke-dasharray="6 6"/>
+              <path d="M40 140 L40 110 L70 60 L90 60 L130 130 L130 140 L100 140 L100 120 L80 120 L70 140 Z" fill="#19B5E8"/>
+              <circle cx="160" cy="50" r="6" fill="#19B5E8"/>
+            </svg>
+          </div>
+          <span class="absolute top-4 left-4 text-[10px] font-mono uppercase tracking-widest px-2.5 py-1 rounded bg-accent text-navy">Destaque</span>
+        </div>
+      </div>
+      <div class="lg:col-span-7">
+        <div class="flex flex-wrap items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-corp">
+          <span>Reforma Tributária</span>
+          <span class="text-black/15">·</span>
+          <span>8 min de leitura</span>
+          <span class="text-black/15">·</span>
+          <span>27 mai 2026</span>
+        </div>
+        <h2 class="mt-4 text-2xl md:text-3xl font-bold tracking-tight leading-tight">
+          IBS, CBS e o que muda na auditoria fiscal a partir da Reforma Tributária
+        </h2>
+        <p class="mt-4 text-corp leading-relaxed">
+          A unificação de tributos altera não só a apuração, mas o método de conferência. Quem audita hoje vai precisar de novos cruzamentos a partir de 2027  e o trabalho de preparação começa agora.
+        </p>
+        <a href="#" class="mt-6 inline-flex items-center gap-2 text-navy font-medium underline-offset-4 hover:underline">
+          Ler artigo completo
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══ GRID DE ARTIGOS ═══ -->
+<section class="bg-ice pb-20">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="flex items-end justify-between mb-8">
+      <h2 class="text-xl font-semibold tracking-tight">Mais recentes</h2>
+      <p class="text-sm text-corp hidden sm:block">12 artigos · página 1</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+
+      <!-- card 1 -->
+      <article class="reveal group rounded-2xl bg-white border border-black/[0.06] overflow-hidden hover:shadow-card transition">
+        <a href="#" class="block">
+          <div class="card-thumb aspect-[16/10] relative overflow-hidden">
+            <svg viewBox="0 0 200 120" class="absolute inset-0 w-full h-full opacity-80" aria-hidden="true">
+              <path d="M20 95 L60 75 L100 85 L140 50 L180 40" fill="none" stroke="#19B5E8" stroke-width="2.5"/>
+              <circle cx="60" cy="75" r="4" fill="#19B5E8"/>
+              <circle cx="100" cy="85" r="4" fill="#19B5E8"/>
+              <circle cx="140" cy="50" r="4" fill="#19B5E8"/>
+              <circle cx="180" cy="40" r="4" fill="#19B5E8"/>
+            </svg>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-corp">
+              <span class="text-accent">Recuperação de Créditos</span>
+              <span class="text-black/15">·</span>
+              <span>6 min</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold tracking-tight leading-snug group-hover:text-accent transition">Como mapear créditos de PIS/COFINS em carteiras grandes sem perder o controle</h3>
+            <p class="mt-3 text-sm text-corp">Um framework prático em 4 etapas para escritórios que querem industrializar a recuperação.</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- card 2 -->
+      <article class="reveal group rounded-2xl bg-white border border-black/[0.06] overflow-hidden hover:shadow-card transition">
+        <a href="#" class="block">
+          <div class="card-thumb aspect-[16/10] relative overflow-hidden">
+            <svg viewBox="0 0 200 120" class="absolute inset-0 w-full h-full opacity-80" aria-hidden="true">
+              <rect x="30" y="30" width="40" height="60" rx="3" fill="#19B5E8" opacity=".6"/>
+              <rect x="80" y="50" width="40" height="40" rx="3" fill="#19B5E8" opacity=".8"/>
+              <rect x="130" y="20" width="40" height="70" rx="3" fill="#19B5E8"/>
+            </svg>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-corp">
+              <span class="text-accent">Lucro Real</span>
+              <span class="text-black/15">·</span>
+              <span>9 min</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold tracking-tight leading-snug group-hover:text-accent transition">Lucro Real para escritório: o checklist que evita 90% dos retrabalhos no fechamento</h3>
+            <p class="mt-3 text-sm text-corp">As 12 conferências mensais que separam um fechamento limpo de um fechamento em pânico.</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- card 3 -->
+      <article class="reveal group rounded-2xl bg-white border border-black/[0.06] overflow-hidden hover:shadow-card transition">
+        <a href="#" class="block">
+          <div class="card-thumb aspect-[16/10] relative overflow-hidden">
+            <svg viewBox="0 0 200 120" class="absolute inset-0 w-full h-full opacity-80" aria-hidden="true">
+              <circle cx="100" cy="60" r="42" fill="none" stroke="#19B5E8" stroke-width="3" stroke-dasharray="100 263"/>
+              <circle cx="100" cy="60" r="42" fill="none" stroke="#7BD7F2" stroke-width="3" stroke-dasharray="60 263" transform="rotate(100 100 60)"/>
+              <text x="100" y="66" text-anchor="middle" fill="#19B5E8" font-family="monospace" font-size="14">CFOP</text>
+            </svg>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-corp">
+              <span class="text-accent">ICMS</span>
+              <span class="text-black/15">·</span>
+              <span>5 min</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold tracking-tight leading-snug group-hover:text-accent transition">Inconsistência de CFOP: por que é o erro mais caro que ninguém quer revisar</h3>
+            <p class="mt-3 text-sm text-corp">Diagnóstico, impacto fiscal e os cruzamentos que pegam o problema antes da fiscalização.</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- card 4 -->
+      <article class="reveal group rounded-2xl bg-white border border-black/[0.06] overflow-hidden hover:shadow-card transition">
+        <a href="#" class="block">
+          <div class="card-thumb aspect-[16/10] relative overflow-hidden">
+            <svg viewBox="0 0 200 120" class="absolute inset-0 w-full h-full opacity-80" aria-hidden="true">
+              <path d="M40 80 L40 60 L60 40 L80 40 L100 70 L100 80 Z M120 80 L120 60 L140 40 L160 40 L180 70 L180 80 Z" fill="#19B5E8" opacity=".75"/>
+              <path d="M40 90 L180 90" stroke="#19B5E8" stroke-width="2"/>
+            </svg>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-corp">
+              <span class="text-accent">Gestão de escritório</span>
+              <span class="text-black/15">·</span>
+              <span>7 min</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold tracking-tight leading-snug group-hover:text-accent transition">A diferença entre departamento fiscal e auditoria fiscal dentro do escritório</h3>
+            <p class="mt-3 text-sm text-corp">Quando vale separar as equipes e quando uma só pessoa concentra os dois papéis.</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- card 5 -->
+      <article class="reveal group rounded-2xl bg-white border border-black/[0.06] overflow-hidden hover:shadow-card transition">
+        <a href="#" class="block">
+          <div class="card-thumb aspect-[16/10] relative overflow-hidden">
+            <svg viewBox="0 0 200 120" class="absolute inset-0 w-full h-full opacity-80" aria-hidden="true">
+              <rect x="50" y="30" width="100" height="60" rx="6" fill="none" stroke="#19B5E8" stroke-width="2"/>
+              <path d="M60 50 L140 50 M60 65 L120 65 M60 80 L110 80" stroke="#19B5E8" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-corp">
+              <span class="text-accent">PIS / COFINS</span>
+              <span class="text-black/15">·</span>
+              <span>4 min</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold tracking-tight leading-snug group-hover:text-accent transition">Não-cumulatividade na prática: os 6 créditos que mais somem na apuração</h3>
+            <p class="mt-3 text-sm text-corp">Lista de verificação rápida para sair do achismo e entrar no método.</p>
+          </div>
+        </a>
+      </article>
+
+      <!-- card 6 -->
+      <article class="reveal group rounded-2xl bg-white border border-black/[0.06] overflow-hidden hover:shadow-card transition">
+        <a href="#" class="block">
+          <div class="card-thumb aspect-[16/10] relative overflow-hidden">
+            <svg viewBox="0 0 200 120" class="absolute inset-0 w-full h-full opacity-80" aria-hidden="true">
+              <path d="M30 90 L60 60 L90 75 L120 40 L150 55 L180 25" fill="none" stroke="#19B5E8" stroke-width="2.5"/>
+              <path d="M30 90 L60 60 L90 75 L120 40 L150 55 L180 25 L180 100 L30 100 Z" fill="#19B5E8" opacity=".2"/>
+            </svg>
+          </div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-corp">
+              <span class="text-accent">Reforma Tributária</span>
+              <span class="text-black/15">·</span>
+              <span>11 min</span>
+            </div>
+            <h3 class="mt-3 text-lg font-semibold tracking-tight leading-snug group-hover:text-accent transition">Período de transição da Reforma: como preparar o escritório entre 2026 e 2033</h3>
+            <p class="mt-3 text-sm text-corp">Cronograma, sistemas e treinamento de equipe  sem alarmismo, com agenda.</p>
+          </div>
+        </a>
+      </article>
+
+    </div>
+
+    <div class="mt-12 flex items-center justify-center gap-2">
+      <button class="w-9 h-9 rounded-lg border border-black/10 text-corp hover:bg-white transition" aria-label="Página anterior">
+        <svg viewBox="0 0 24 24" class="w-4 h-4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+      <button class="w-9 h-9 rounded-lg bg-navy text-white text-sm">1</button>
+      <button class="w-9 h-9 rounded-lg border border-black/10 text-corp hover:bg-white transition text-sm">2</button>
+      <button class="w-9 h-9 rounded-lg border border-black/10 text-corp hover:bg-white transition text-sm">3</button>
+      <button class="w-9 h-9 rounded-lg border border-black/10 text-corp hover:bg-white transition" aria-label="Próxima página">
+        <svg viewBox="0 0 24 24" class="w-4 h-4 mx-auto" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MATERIAIS / LEAD MAGNETS ═══ -->
+<section class="bg-white py-20 lg:py-28 border-y border-black/[0.06]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-3xl reveal">
+      <span class="text-xs tracking-[.18em] uppercase text-accent font-medium">Materiais gratuitos</span>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+        Recursos práticos para usar dentro do escritório.
+      </h2>
+    </div>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-5">
+      <article class="reveal p-6 rounded-2xl bg-ice border border-black/[0.06]">
+        <div class="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" stroke-linejoin="round"/><path d="M14 2v6h6" stroke-linejoin="round"/></svg>
+          PDF · Checklist
+        </div>
+        <h3 class="mt-4 text-xl font-semibold tracking-tight leading-snug">12 conferências obrigatórias no fechamento mensal</h3>
+        <p class="mt-3 text-sm text-corp">A lista que reduz retrabalho e mantém o time fiscal previsível.</p>
+        <a href="#" class="mt-5 inline-flex items-center gap-2 text-navy font-medium text-sm underline-offset-4 hover:underline">
+          Baixar grátis
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+      <article class="reveal p-6 rounded-2xl bg-ice border border-black/[0.06]">
+        <div class="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9" stroke-linecap="round"/></svg>
+          Planilha · Excel
+        </div>
+        <h3 class="mt-4 text-xl font-semibold tracking-tight leading-snug">Modelo de mapa de risco fiscal por cliente</h3>
+        <p class="mt-3 text-sm text-corp">Pontue cada cliente da carteira em 8 dimensões e priorize a auditoria.</p>
+        <a href="#" class="mt-5 inline-flex items-center gap-2 text-navy font-medium text-sm underline-offset-4 hover:underline">
+          Baixar grátis
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+      <article class="reveal p-6 rounded-2xl bg-navy text-white border border-white/10">
+        <div class="inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-widest text-accent">
+          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12l3-3v6l-3-3zm6 0a6 6 0 0112 0 6 6 0 01-12 0z" stroke-linejoin="round"/></svg>
+          E-book
+        </div>
+        <h3 class="mt-4 text-xl font-semibold tracking-tight leading-snug">Manual prático da Reforma Tributária para escritórios</h3>
+        <p class="mt-3 text-sm text-white/70">Cronograma, impacto na operação e o que decidir entre 2026 e 2027.</p>
+        <a href="#" class="mt-5 inline-flex items-center gap-2 text-accent font-medium text-sm underline-offset-4 hover:underline">
+          Baixar grátis
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 5v14M5 12l7 7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ NEWSLETTER ═══ -->
+<section class="bg-navy text-white py-20 lg:py-24 relative overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-40"></div>
+  <span class="blob bg-accent/30 w-[380px] h-[380px] -bottom-20 -right-20" aria-hidden="true"></span>
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-10 text-center reveal">
+    <span class="text-xs tracking-[.22em] uppercase text-accent">Newsletter</span>
+    <h2 class="mt-4 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+      A cada quinta, um e-mail com o que mudou na auditoria fiscal.
+    </h2>
+    <p class="mt-5 text-white/70 max-w-2xl mx-auto">
+      Sem caça-cliques. Sem texto motivacional. Apenas o que serve para a próxima decisão técnica do seu escritório.
+    </p>
+    <div class="mt-9 flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+      <label for="newsletterEmail" class="sr-only">Seu e-mail</label>
+      <input id="newsletterEmail" type="email" autocomplete="email" class="flex-1 px-4 py-3 rounded-xl bg-white/[.06] border border-white/15 text-white placeholder-white/40 focus:bg-white/[.1] focus:border-accent transition text-sm" placeholder="voce@escritorio.com.br">
+      <button type="button" class="px-6 py-3 rounded-xl bg-accent text-navy font-semibold hover:bg-accent-500 transition">Assinar</button>
+    </div>
+    <p class="mt-4 text-xs text-white/40">Sem spam. Cancele quando quiser.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="bg-navy-800 text-white border-t border-white/5" role="contentinfo">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <a href="index.html" class="flex items-center gap-2.5 mb-5"><img class="official-logo" src="assets/logo/logo-light.png" alt="MeuAuditor"></a>
+      <p class="text-sm text-white/60 max-w-sm">Sua auditoria tributária automatizada. Inteligência fiscal para o seu escritório auditar com mais eficiência.</p>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Plataforma</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="index.html" class="hover:text-white">Visão geral</a></li>
+        <li><a href="planos.html" class="hover:text-white">Planos</a></li>
+        <li><a href="index.html#demo" class="hover:text-white">Agendar demo</a></li>
+        <li><a href="#login" class="hover:text-white">Fazer login</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Empresa</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="quem-somos.html" class="hover:text-white">Quem somos</a></li>
+        <li><a href="conteudo.html" class="hover:text-white">Conteúdo</a></li>
+        <li><a href="#" class="hover:text-white">Suporte</a></li>
+        <li><a href="#" class="hover:text-white">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Legal</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="#" class="hover:text-white">Termos de uso</a></li>
+        <li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
+        <li><a href="#" class="hover:text-white">Segurança</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <p>© MeuAuditor  Todos os direitos reservados | 2026</p>
+      <p>F2T Tecnologia Tributária · Sua auditoria tributária automatizada</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var btn = document.getElementById('navBtn'), menu = document.getElementById('mobileMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  }
+  // filtros (UI only)
+  document.querySelectorAll('.filter-chip').forEach(function(c){
+    c.addEventListener('click', function(){
+      document.querySelectorAll('.filter-chip').forEach(function(x){ x.setAttribute('aria-pressed','false'); });
+      c.setAttribute('aria-pressed','true');
+    });
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+<script src="assets/js/editor-mode.js"></script>
+</body>
+</html>

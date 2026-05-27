@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MeuAuditor | Recuperação de créditos no Lucro Real</title>
+<meta name="description" content="Plataforma para empresas do Lucro Real identificarem tributos pagos a maior e oportunidades de recuperação de créditos tributários com evidências e memória de cálculo.">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: { DEFAULT:'#12324A', 900:'#0B2538', 800:'#12324A', 700:'#1D4663' },
+          accent: { DEFAULT:'#19B5E8', 500:'#41C4EE', 400:'#7BD7F2' },
+          ice: '#F9F9F9',
+          corp: '#4F5963'
+        },
+        fontFamily: {
+          sans: ['"Space Grotesk"','system-ui','sans-serif']
+        },
+        boxShadow: {
+          card: '0 1px 2px rgba(79,89,99,.04), 0 16px 42px rgba(18,50,74,.10)',
+          glow: '0 0 0 1px rgba(25,181,232,.25), 0 12px 30px rgba(25,181,232,.20)'
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @font-face { font-family:"Space Grotesk"; src:url("assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype"); font-weight:300 700; font-style:normal; font-display:swap; }
+  @font-face { font-family:"Gotham"; src:url("assets/fonts/Gotham-Book.woff2") format("woff2"); font-weight:400; font-style:normal; font-display:swap; }
+  @font-face { font-family:"Gotham"; src:url("assets/fonts/Gotham-Bold.woff2") format("woff2"); font-weight:700; font-style:normal; font-display:swap; }
+  html { scroll-behavior:smooth; }
+  body { font-family:"Space Grotesk",system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .official-logo { display:block; width:auto; height:38px; object-fit:contain; }
+  footer .official-logo { height:42px; }
+  .nav-blur { backdrop-filter:blur(14px) saturate(160%); -webkit-backdrop-filter:blur(14px) saturate(160%); }
+  .grid-bg { background-image:linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px); background-size:44px 44px; }
+  .reveal { opacity:0; transform:translateY(22px); transition:opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity:1; transform:translateY(0); }
+  .print-panel { display:none; }
+  .print-panel.active { display:block; }
+  .demo-tab[aria-selected="true"] { background:#12324A; color:#fff; border-color:#12324A; }
+  .print-slot { min-height:390px; background:linear-gradient(135deg,#F9F9F9,#EEF7FB); }
+  .print-slot img { display:none; width:100%; height:100%; object-fit:cover; }
+  .print-slot.has-image img { display:block; }
+  @media (prefers-reduced-motion:reduce) { .reveal { opacity:1; transform:none; transition:none; } }
+</style>
+</head>
+<body class="bg-ice text-navy">
+
+<a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[99] focus:bg-accent focus:text-navy focus:px-4 focus:py-2 focus:rounded-lg">Pular para o conteúdo</a>
+
+<header id="nav" class="fixed top-0 inset-x-0 z-50 nav-blur bg-navy/95 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+    <a href="index.html" aria-label="MeuAuditor página inicial">
+      <img class="official-logo" src="assets/logo/logo-light.png" alt="MeuAuditor">
+    </a>
+    <nav class="hidden lg:flex items-center gap-8 text-sm text-white/75" aria-label="Principal">
+      <a href="index.html" class="text-white">Início</a>
+      <a href="quem-somos.html" class="hover:text-white transition">Quem somos</a>
+      <a href="conteudo.html" class="hover:text-white transition">Conteúdo</a>
+      <a href="planos.html" class="hover:text-white transition">Planos</a>
+      <a href="#demo-interativa" class="hover:text-white transition">Demo</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="#contato" class="hidden sm:inline-flex items-center text-sm font-semibold text-navy bg-accent hover:bg-accent-500 transition px-4 py-2 rounded-lg shadow-glow">Agendar demo</a>
+      <button id="navBtn" class="lg:hidden p-2 text-white" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-white/10 bg-navy">
+    <nav class="px-6 py-4 flex flex-col gap-3 text-sm text-white/80" aria-label="Menu mobile">
+      <a href="index.html">Início</a>
+      <a href="quem-somos.html">Quem somos</a>
+      <a href="conteudo.html">Conteúdo</a>
+      <a href="planos.html">Planos</a>
+      <a href="#demo-interativa">Demo</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+<section class="relative overflow-hidden bg-navy text-white pt-28 pb-16 lg:pt-36 lg:pb-24">
+  <div class="absolute inset-0 grid-bg opacity-40" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 flex items-center">
+    <div class="reveal max-w-4xl">
+      <p class="inline-flex items-center gap-2 text-[11px] tracking-[.18em] uppercase text-accent font-semibold mb-5">
+        <span class="w-8 h-px bg-accent"></span> Recuperação de créditos no Lucro Real
+      </p>
+      <h1 class="text-4xl md:text-5xl lg:text-[62px] leading-[1.02] font-bold tracking-tight max-w-4xl">
+        Seu software de auditoria tributária.
+      </h1>
+      <p class="mt-6 text-lg md:text-xl text-white/75 max-w-3xl">
+        Ajude seus clientes do Lucro Real a recuperar créditos tributários com mais agilidade, clareza e segurança na entrega do diagnóstico fiscal.
+      </p>
+      <div class="mt-8 grid sm:grid-cols-3 gap-3 max-w-3xl">
+        <div class="rounded-xl border border-white/10 bg-white/[.06] p-4">
+          <strong class="block text-2xl text-accent">Até 60 meses</strong>
+          <span class="text-sm text-white/65">de oportunidades fiscais revisadas</span>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/[.06] p-4">
+          <strong class="block text-2xl text-accent">Lucro Real</strong>
+          <span class="text-sm text-white/65">auditoria focada em operações mais complexas</span>
+        </div>
+        <div class="rounded-xl border border-white/10 bg-white/[.06] p-4">
+          <strong class="block text-2xl text-accent">Evidências</strong>
+          <span class="text-sm text-white/65">organizadas para revisão e apresentação ao cliente</span>
+        </div>
+      </div>
+      <div class="mt-9 flex flex-wrap gap-3">
+        <a href="#contato" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl bg-accent text-navy font-semibold hover:bg-accent-500 transition shadow-glow">Agendar demonstração</a>
+        <a href="#demo-interativa" class="inline-flex items-center justify-center px-6 py-3.5 rounded-xl border border-white/20 text-white hover:bg-white/5 transition">Ver sistema</a>
+      </div>
+    </div>
+
+      </div>
+</section>
+
+<section class="bg-white border-y border-black/[0.06] py-10">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid md:grid-cols-4 gap-6 text-center">
+    <div class="reveal">
+      <strong class="text-3xl font-bold">+90%</strong>
+      <p class="mt-1 text-sm text-corp">menos tempo em apurações manuais</p>
+    </div>
+    <div class="reveal">
+      <strong class="text-3xl font-bold">24/7</strong>
+      <p class="mt-1 text-sm text-corp">evidências prontas para revisão</p>
+    </div>
+    <div class="reveal">
+      <strong class="text-3xl font-bold">100%</strong>
+      <p class="mt-1 text-sm text-corp">trilha documental por crédito</p>
+    </div>
+    <div class="reveal">
+      <strong class="text-3xl font-bold">SaaS</strong>
+      <p class="mt-1 text-sm text-corp">focado em empresas Lucro Real</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-ice py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-5 reveal">
+      <p class="text-xs tracking-[.18em] uppercase text-accent font-semibold">Cenário atual</p>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+        A recuperação de créditos no Lucro Real ainda depende de análise manual demais.
+      </h2>
+      <p class="mt-5 text-corp leading-relaxed">
+        Empresas e consultorias perdem horas conferindo documentos, recalculando bases e montando provas. O MeuAuditor transforma esse processo em uma análise digital, rastreável e orientada à recuperação.
+      </p>
+    </div>
+    <div class="lg:col-span-7 grid sm:grid-cols-2 gap-4">
+      <article class="reveal rounded-2xl bg-white border border-black/[0.06] p-6 shadow-card">
+        <p class="text-sm font-mono text-accent">01</p>
+        <h3 class="mt-4 text-xl font-semibold">Bases fiscais dispersas</h3>
+        <p class="mt-2 text-sm text-corp">EFD, SPED, XMLs e apurações ficam espalhados em pastas, sistemas e planilhas.</p>
+      </article>
+      <article class="reveal rounded-2xl bg-white border border-black/[0.06] p-6 shadow-card">
+        <p class="text-sm font-mono text-accent">02</p>
+        <h3 class="mt-4 text-xl font-semibold">Crédito sem prioridade</h3>
+        <p class="mt-2 text-sm text-corp">A equipe encontra possibilidades, mas nem sempre sabe quais valores validar primeiro.</p>
+      </article>
+      <article class="reveal rounded-2xl bg-white border border-black/[0.06] p-6 shadow-card">
+        <p class="text-sm font-mono text-accent">03</p>
+        <h3 class="mt-4 text-xl font-semibold">Tributos pagos a maior</h3>
+        <p class="mt-2 text-sm text-corp">Pagamentos indevidos passam despercebidos quando a análise depende de amostragem manual.</p>
+      </article>
+      <article class="reveal rounded-2xl bg-navy text-white border border-white/10 p-6 shadow-card">
+        <p class="text-sm font-mono text-accent">04</p>
+        <h3 class="mt-4 text-xl font-semibold">Prova documental lenta</h3>
+        <p class="mt-2 text-sm text-white/70">Sem evidências por documento, a recuperação fica mais lenta, arriscada e difícil de defender.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="demo-interativa" class="bg-white py-20 lg:py-28 border-y border-black/[0.06]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-3xl reveal">
+      <p class="text-xs tracking-[.18em] uppercase text-accent font-semibold">Demo interativa</p>
+      <h2 class="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-tight">
+        Mostre como o MeuAuditor encontra créditos no Lucro Real.
+      </h2>
+      <p class="mt-5 text-corp leading-relaxed">
+        Esta seção já está pronta para receber prints do fluxo real de recuperação: oportunidades, competências, evidências, memória de cálculo e relatório técnico.
+      </p>
+    </div>
+
+    <div class="mt-10 grid lg:grid-cols-[280px_1fr] gap-6 items-start">
+      <div class="reveal rounded-2xl bg-ice border border-black/[0.06] p-3 shadow-card">
+        <button class="demo-tab w-full text-left rounded-xl border border-transparent px-4 py-4 transition" type="button" aria-selected="true" data-demo-tab="dashboard">
+          <span class="block text-xs text-accent font-mono">Tela 01</span>
+          <strong class="block mt-1">Painel de oportunidades</strong>
+          <span class="block mt-1 text-sm text-corp">Créditos potenciais por CNPJ, tributo e período.</span>
+        </button>
+        <button class="demo-tab w-full text-left rounded-xl border border-transparent px-4 py-4 transition" type="button" aria-selected="false" data-demo-tab="cruzamentos">
+          <span class="block text-xs text-accent font-mono">Tela 02</span>
+          <strong class="block mt-1">Créditos por competência</strong>
+          <span class="block mt-1 text-sm text-corp">Valores originais, valores ajustados e potencial recuperável.</span>
+        </button>
+        <button class="demo-tab w-full text-left rounded-xl border border-transparent px-4 py-4 transition" type="button" aria-selected="false" data-demo-tab="oportunidades">
+          <span class="block text-xs text-accent font-mono">Tela 03</span>
+          <strong class="block mt-1">Evidências documentais</strong>
+          <span class="block mt-1 text-sm text-corp">Notas, itens, CST, CFOP, NCM e origem do apontamento.</span>
+        </button>
+        <button class="demo-tab w-full text-left rounded-xl border border-transparent px-4 py-4 transition" type="button" aria-selected="false" data-demo-tab="relatorios">
+          <span class="block text-xs text-accent font-mono">Tela 04</span>
+          <strong class="block mt-1">Memória e relatório</strong>
+          <span class="block mt-1 text-sm text-corp">Memória de cálculo, planilhas e laudo técnico.</span>
+        </button>
+      </div>
+
+      <div class="reveal rounded-2xl border border-black/[0.06] bg-white p-4 shadow-card">
+        <div class="print-panel active" data-demo-panel="dashboard">
+          <div class="print-slot rounded-xl border border-dashed border-corp/30 overflow-hidden flex items-center justify-center text-center p-8" data-print="assets/prints/oportunidades-lucro-real.png">
+            <img src="assets/prints/oportunidades-lucro-real.png" alt="Print do painel de oportunidades">
+            <div class="print-placeholder">
+              <p class="text-sm font-mono text-accent">assets/prints/oportunidades-lucro-real.png</p>
+              <h3 class="mt-3 text-2xl font-bold">Painel de oportunidades</h3>
+              <p class="mt-2 text-corp max-w-xl">Substitua este placeholder pelo print do painel com créditos potenciais por tributo, competência e CNPJ.</p>
+            </div>
+          </div>
+        </div>
+        <div class="print-panel" data-demo-panel="cruzamentos">
+          <div class="print-slot rounded-xl border border-dashed border-corp/30 overflow-hidden flex items-center justify-center text-center p-8" data-print="assets/prints/creditos-por-competencia.png">
+            <img src="assets/prints/creditos-por-competencia.png" alt="Print de créditos por competência">
+            <div class="print-placeholder">
+              <p class="text-sm font-mono text-accent">assets/prints/creditos-por-competencia.png</p>
+              <h3 class="mt-3 text-2xl font-bold">Créditos por competência</h3>
+              <p class="mt-2 text-corp max-w-xl">Espaço para mostrar valores por competência, base original, base ajustada e diferença recuperável.</p>
+            </div>
+          </div>
+        </div>
+        <div class="print-panel" data-demo-panel="oportunidades">
+          <div class="print-slot rounded-xl border border-dashed border-corp/30 overflow-hidden flex items-center justify-center text-center p-8" data-print="assets/prints/evidencias-documentais.png">
+            <img src="assets/prints/evidencias-documentais.png" alt="Print de evidências documentais">
+            <div class="print-placeholder">
+              <p class="text-sm font-mono text-accent">assets/prints/evidencias-documentais.png</p>
+              <h3 class="mt-3 text-2xl font-bold">Evidências documentais</h3>
+              <p class="mt-2 text-corp max-w-xl">Use este slot para mostrar documentos, itens, CFOP, CST, NCM e origem de cada crédito.</p>
+            </div>
+          </div>
+        </div>
+        <div class="print-panel" data-demo-panel="relatorios">
+          <div class="print-slot rounded-xl border border-dashed border-corp/30 overflow-hidden flex items-center justify-center text-center p-8" data-print="assets/prints/memoria-relatorio.png">
+            <img src="assets/prints/memoria-relatorio.png" alt="Print de memória de cálculo e relatório">
+            <div class="print-placeholder">
+              <p class="text-sm font-mono text-accent">assets/prints/memoria-relatorio.png</p>
+              <h3 class="mt-3 text-2xl font-bold">Memória e relatório executivos</h3>
+              <p class="mt-2 text-corp max-w-xl">Área para apresentar memória de cálculo, planilha comparativa e relatório técnico de recuperação.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bg-ice py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-3xl reveal">
+      <p class="text-xs tracking-[.18em] uppercase text-accent font-semibold">Como funciona</p>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+        Do arquivo fiscal ao crédito tributário validável em quatro etapas.
+      </h2>
+    </div>
+    <div class="mt-12 grid md:grid-cols-4 gap-4">
+      <article class="reveal bg-white rounded-2xl border border-black/[0.06] p-6 shadow-card">
+        <span class="inline-flex w-10 h-10 items-center justify-center rounded-lg bg-navy text-white font-semibold">1</span>
+        <h3 class="mt-5 font-semibold text-lg">Importe os dados</h3>
+        <p class="mt-2 text-sm text-corp">Importe EFD Contribuições, SPED Fiscal, XML de NF-e e bases de apuração.</p>
+      </article>
+      <article class="reveal bg-white rounded-2xl border border-black/[0.06] p-6 shadow-card">
+        <span class="inline-flex w-10 h-10 items-center justify-center rounded-lg bg-navy text-white font-semibold">2</span>
+        <h3 class="mt-5 font-semibold text-lg">Recalcule bases</h3>
+        <p class="mt-2 text-sm text-corp">A plataforma cruza documentos, recalcula bases e compara valores recolhidos.</p>
+      </article>
+      <article class="reveal bg-white rounded-2xl border border-black/[0.06] p-6 shadow-card">
+        <span class="inline-flex w-10 h-10 items-center justify-center rounded-lg bg-navy text-white font-semibold">3</span>
+        <h3 class="mt-5 font-semibold text-lg">Priorize créditos</h3>
+        <p class="mt-2 text-sm text-corp">A equipe visualiza potencial recuperável, origem, causa e evidência documental.</p>
+      </article>
+      <article class="reveal bg-white rounded-2xl border border-black/[0.06] p-6 shadow-card">
+        <span class="inline-flex w-10 h-10 items-center justify-center rounded-lg bg-accent text-navy font-semibold">4</span>
+        <h3 class="mt-5 font-semibold text-lg">Entregue o dossiê</h3>
+        <p class="mt-2 text-sm text-corp">Gere memória de cálculo, planilha de apoio e relatório técnico para validação.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="bg-navy text-white py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-10 items-center">
+    <div class="reveal">
+      <p class="text-xs tracking-[.18em] uppercase text-accent font-semibold">Para empresas do Lucro Real</p>
+      <h2 class="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-tight">
+        Transforme dados fiscais em oportunidades reais de recuperação tributária.
+      </h2>
+    </div>
+    <div class="reveal grid sm:grid-cols-2 gap-4">
+      <div class="rounded-2xl border border-white/10 bg-white/[.05] p-6">
+        <h3 class="font-semibold">Mais recuperação</h3>
+        <p class="mt-2 text-sm text-white/70">Encontre créditos tributários com menos dependência de amostragem manual.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/[.05] p-6">
+        <h3 class="font-semibold">Mais segurança</h3>
+        <p class="mt-2 text-sm text-white/70">Organize evidência, memória de cálculo e origem documental em um único fluxo.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/[.05] p-6">
+        <h3 class="font-semibold">Mais previsibilidade</h3>
+        <p class="mt-2 text-sm text-white/70">Priorize oportunidades por valor, tributo, período e qualidade da evidência.</p>
+      </div>
+      <div class="rounded-2xl border border-white/10 bg-white/[.05] p-6">
+        <h3 class="font-semibold">Mais clareza técnica</h3>
+        <p class="mt-2 text-sm text-white/70">Entregue relatórios técnicos claros, com base documental e comparativos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="bg-ice py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12">
+    <div class="lg:col-span-4 reveal">
+      <p class="text-xs tracking-[.18em] uppercase text-accent font-semibold">Perguntas frequentes</p>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight leading-tight">O que saber antes de buscar créditos no Lucro Real?</h2>
+      <a href="#contato" class="mt-6 inline-flex text-navy font-semibold underline underline-offset-4">Falar com especialista</a>
+    </div>
+    <div class="lg:col-span-8 reveal divide-y divide-black/[0.08] border-y border-black/[0.08]">
+      <details class="py-6" open>
+        <summary class="cursor-pointer text-lg font-semibold">Quais arquivos entram na análise?</summary>
+        <p class="mt-3 text-corp">O fluxo considera EFD Contribuições, SPED Fiscal, XML de NF-e, apurações e bases fiscais de apoio. A cobertura exata depende do escopo contratado.</p>
+      </details>
+      <details class="py-6">
+        <summary class="cursor-pointer text-lg font-semibold">A ferramenta substitui a validação técnica?</summary>
+        <p class="mt-3 text-corp">Não. Ela automatiza cruzamentos e organiza evidências para que o especialista valide tecnicamente a oportunidade.</p>
+      </details>
+      <details class="py-6">
+        <summary class="cursor-pointer text-lg font-semibold">Serve para consultoria ou escritório contábil?</summary>
+        <p class="mt-3 text-corp">Sim. O MeuAuditor pode apoiar consultorias, escritórios contábeis e times fiscais que atendem empresas do Lucro Real, com visão por CNPJ, competência e tributo.</p>
+      </details>
+      <details class="py-6">
+        <summary class="cursor-pointer text-lg font-semibold">Como inserir meus prints na demo?</summary>
+        <p class="mt-3 text-corp">Coloque as imagens em `assets/prints/` com os nomes `oportunidades-lucro-real.png`, `creditos-por-competencia.png`, `evidencias-documentais.png` e `memoria-relatorio.png`.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="contato" class="bg-white py-20 lg:py-28 border-y border-black/[0.06]">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10 text-center reveal">
+    <p class="text-xs tracking-[.18em] uppercase text-accent font-semibold">Próximo passo</p>
+    <h2 class="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-tight">Veja como o MeuAuditor identifica créditos tributários no Lucro Real.</h2>
+    <p class="mt-5 text-corp">A demonstração mostra o fluxo completo: importação, cruzamento, cálculo do potencial recuperável, evidências e relatório técnico.</p>
+    <a href="#contato" class="mt-8 inline-flex items-center justify-center rounded-xl bg-accent px-7 py-3.5 text-navy font-semibold shadow-glow hover:bg-accent-500 transition">Agendar demonstração</a>
+  </div>
+</section>
+
+</main>
+
+<footer class="bg-navy text-white border-t border-white/10" role="contentinfo">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-14 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <a href="index.html"><img class="official-logo" src="assets/logo/logo-light.png" alt="MeuAuditor"></a>
+      <p class="mt-5 text-sm text-white/65 max-w-sm">Recuperação de créditos tributários para empresas do Lucro Real, com cruzamentos, evidências e memória de cálculo.</p>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Plataforma</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="#demo-interativa" class="hover:text-white">Demo</a></li>
+        <li><a href="planos.html" class="hover:text-white">Planos</a></li>
+        <li><a href="#contato" class="hover:text-white">Agendar demo</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Empresa</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="quem-somos.html" class="hover:text-white">Quem somos</a></li>
+        <li><a href="conteudo.html" class="hover:text-white">Conteúdo</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Legal</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="#" class="hover:text-white">Termos de uso</a></li>
+        <li><a href="#" class="hover:text-white">Privacidade</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <p>© MeuAuditor Todos os direitos reservados | 2026</p>
+      <p>F2T Tecnologia Tributária · Recuperação de créditos para Lucro Real</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  var btn = document.getElementById('navBtn');
+  var menu = document.getElementById('mobileMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', function(){
+      var isHidden = menu.classList.toggle('hidden');
+      btn.setAttribute('aria-expanded', String(!isHidden));
+    });
+    menu.querySelectorAll('a').forEach(function(link){
+      link.addEventListener('click', function(){
+        menu.classList.add('hidden');
+        btn.setAttribute('aria-expanded','false');
+      });
+    });
+  }
+
+  document.querySelectorAll('.demo-tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var target = tab.getAttribute('data-demo-tab');
+      document.querySelectorAll('.demo-tab').forEach(function(item){
+        item.setAttribute('aria-selected', String(item === tab));
+      });
+      document.querySelectorAll('.print-panel').forEach(function(panel){
+        panel.classList.toggle('active', panel.getAttribute('data-demo-panel') === target);
+      });
+    });
+  });
+
+  document.querySelectorAll('.print-slot img').forEach(function(img){
+    img.addEventListener('load', function(){
+      img.closest('.print-slot').classList.add('has-image');
+      var placeholder = img.closest('.print-slot').querySelector('.print-placeholder');
+      if (placeholder) placeholder.style.display = 'none';
+    });
+    img.addEventListener('error', function(){
+      img.removeAttribute('src');
+    });
+  });
+
+  document.querySelectorAll('form').forEach(function(form){
+    form.addEventListener('submit', function(event){
+      event.preventDefault();
+      var button = form.querySelector('button');
+      if (!button) return;
+      var original = button.textContent;
+      button.textContent = 'Recebido';
+      window.setTimeout(function(){
+        button.textContent = original;
+        form.reset();
+      }, 1400);
+    });
+  });
+
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          entry.target.classList.add('in');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold:.12 });
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+<script src="assets/js/editor-mode.js"></script>
+</body>
+</html>

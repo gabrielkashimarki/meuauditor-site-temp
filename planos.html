@@ -1,0 +1,775 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Planos  MeuAuditor</title>
+<meta name="description" content="Planos do MeuAuditor para escritórios contábeis. Auditoria tributária automatizada com cobertura completa de PIS, COFINS, ICMS, IPI e ISS  histórico de até 60 meses e suporte dedicado.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy:   { DEFAULT:'#12324A', 900:'#0B2538', 800:'#12324A', 700:'#1D4663' },
+          accent: { DEFAULT:'#19B5E8', 600:'#19B5E8', 500:'#41C4EE', 400:'#7BD7F2' },
+          ice:    '#F9F9F9',
+          corp:   '#4F5963',
+        },
+        fontFamily: {
+          sans: ['"Space Grotesk"','system-ui','sans-serif'],
+        },
+        boxShadow: {
+          'card': '0 1px 2px rgba(79,89,99,.04), 0 8px 24px rgba(79,89,99,.06)',
+          'card-lg': '0 24px 60px -20px rgba(79,89,99,.25)',
+          'glow': '0 0 0 1px rgba(25,181,232,.25), 0 8px 32px rgba(25,181,232,.18)',
+        },
+      }
+    }
+  }
+</script>
+<style>
+  @font-face { font-family: "Space Grotesk"; src: url("assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype"); font-weight: 300 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Gotham"; src: url("assets/fonts/Gotham-Book.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Gotham"; src: url("assets/fonts/Gotham-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+  .official-logo { display:block; width:auto; height:38px; object-fit:contain; }
+  footer .official-logo { height:42px; }
+  .bg-navy, .bg-navy\/85, .bg-navy-800, .bg-navy-800\/80, .bg-navy-700, .bg-navy-700\/60 { background-color:#12324A !important; }
+  .hover\:bg-navy:hover, .hover\:bg-navy-700:hover { background-color:#0B2538 !important; }
+  .text-navy { color:#12324A !important; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Space Grotesk',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .skip-link { position:absolute; left:-9999px; top:auto; }
+  .skip-link:focus { left:1rem; top:1rem; z-index:99; background:#19B5E8; color:#12324A; padding:.5rem 1rem; border-radius:.5rem; }
+  *:focus-visible { outline:2px solid #19B5E8; outline-offset:3px; border-radius:4px; }
+  .nav-blur { backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); }
+  .grid-bg { background-image: linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px); background-size: 48px 48px; }
+  .blob { position:absolute; border-radius:9999px; filter:blur(80px); opacity:.4; pointer-events:none; }
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity:1; transform:translateY(0); }
+  details[open] summary .chev { transform: rotate(180deg); }
+  summary::-webkit-details-marker { display:none; }
+  .pattern-a {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><path d='M16 52 L16 44 L26 22 L34 22 L48 50 L48 52 L40 52 L40 44 L30 44 L28 52 Z' fill='%23ffffff' fill-opacity='.04'/></svg>");
+    background-size: 64px 64px;
+  }
+  .toggle-track { transition: background-color .25s ease; }
+  .toggle-knob { transition: transform .25s cubic-bezier(.16,1,.3,1); }
+  .toggle-on .toggle-knob { transform: translateX(28px); }
+  .toggle-on .toggle-track { background-color: #19B5E8; }
+  .price-num { font-variant-numeric: tabular-nums; }
+  .price-old { text-decoration: line-through; text-decoration-thickness: 1.5px; opacity: .45; }
+  @media (prefers-reduced-motion: reduce){
+    .reveal { transition:none; opacity:1; transform:none; }
+    .toggle-knob, .toggle-track { transition: none; }
+  }
+</style>
+</head>
+<body class="bg-ice text-navy">
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<!-- ═══ NAV ═══ -->
+<header id="nav" class="fixed top-0 inset-x-0 z-50 nav-blur bg-navy/85 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5" aria-label="MeuAuditor  Página inicial"><img class="official-logo" src="assets/logo/logo-light.png" alt="MeuAuditor"></a>
+    <nav class="hidden lg:flex items-center gap-9 text-sm text-white/70" aria-label="Principal">
+      <a href="index.html" class="hover:text-white transition">Início</a>
+      <a href="quem-somos.html" class="hover:text-white transition">Quem somos</a>
+      <a href="conteudo.html" class="hover:text-white transition">Conteúdo</a>
+      <a href="planos.html" class="text-white font-medium" aria-current="page">Planos</a>
+      <a href="index.html#faq" class="hover:text-white transition">FAQ</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="#login" class="hidden sm:inline-flex items-center text-sm text-white/80 hover:text-white px-3 py-2 rounded-lg">Entrar</a>
+      <a href="#demo" class="inline-flex items-center text-sm font-medium text-navy bg-accent hover:bg-accent-500 transition px-4 py-2 rounded-lg shadow-glow">
+        Agendar demonstração
+      </a>
+      <button id="navBtn" class="lg:hidden p-2 -mr-2 text-white" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-white/10 bg-navy">
+    <nav class="px-6 py-4 flex flex-col gap-3 text-sm text-white/80" aria-label="Menu mobile">
+      <a href="index.html" class="py-1.5">Início</a>
+      <a href="quem-somos.html" class="py-1.5">Quem somos</a>
+      <a href="conteudo.html" class="py-1.5">Conteúdo</a>
+      <a href="planos.html" class="py-1.5 text-white">Planos</a>
+      <a href="index.html#faq" class="py-1.5">FAQ</a>
+      <a href="#login" class="py-1.5 text-white">Entrar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ═══ HERO ═══ -->
+<section class="relative overflow-hidden bg-navy text-white pt-28 pb-16 lg:pt-36 lg:pb-20">
+  <div class="absolute inset-0 grid-bg opacity-60"></div>
+  <div class="absolute inset-0 pattern-a opacity-50"></div>
+  <span class="blob bg-accent/40 w-[480px] h-[480px] -top-32 -right-32" aria-hidden="true"></span>
+  <span class="blob bg-accent/20 w-[380px] h-[380px] top-40 -left-20" aria-hidden="true"></span>
+
+  <div class="relative max-w-5xl mx-auto px-6 lg:px-10 text-center">
+    <span class="inline-flex items-center gap-2 text-[11px] tracking-[.18em] uppercase text-accent-400 mb-6">
+      <span class="w-6 h-px bg-accent"></span> Planos &amp; preços <span class="w-6 h-px bg-accent"></span>
+    </span>
+    <h1 class="text-4xl md:text-5xl lg:text-[56px] leading-[1.05] font-bold tracking-tight">
+      Escolha o plano ideal <span class="text-accent">para o seu escritório.</span>
+    </h1>
+    <p class="mt-6 text-lg text-white/70 max-w-2xl mx-auto">
+      Auditoria automatizada de PIS, COFINS, ICMS, IPI e ISS  histórico de até 60 meses, integrações nativas e suporte que conhece a rotina fiscal de um escritório contábil.
+    </p>
+
+    <!-- Billing toggle -->
+    <div class="mt-10 inline-flex items-center gap-4 bg-white/5 border border-white/10 rounded-full px-2 py-2">
+      <button id="billMonthly" class="px-5 py-2 rounded-full text-sm font-medium bg-white text-navy transition" aria-pressed="true">Mensal</button>
+      <button id="billAnnual" class="px-5 py-2 rounded-full text-sm font-medium text-white/80 hover:text-white transition flex items-center gap-2" aria-pressed="false">
+        Anual
+        <span class="text-[10px] tracking-wider uppercase bg-accent/20 text-accent-400 px-2 py-0.5 rounded-full">−2 meses</span>
+      </button>
+    </div>
+    <p class="mt-3 text-xs text-white/50">Cobrança anual: economia equivalente a 2 mensalidades.</p>
+  </div>
+</section>
+
+<!-- ═══ PRICING CARDS ═══ -->
+<section class="relative -mt-10 lg:-mt-12 pb-24">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+
+      <!-- ESSENCIAL -->
+      <article class="reveal bg-white rounded-3xl border border-black/5 shadow-card p-8 flex flex-col">
+        <div class="flex items-center justify-between mb-5">
+          <span class="text-xs tracking-[.18em] uppercase text-corp">Essencial</span>
+          <span class="text-[10px] tracking-wider uppercase text-corp bg-ice border border-black/5 px-2 py-1 rounded-full">Até 30 CNPJs</span>
+        </div>
+        <h2 class="text-xl font-bold mb-2">Para escritórios em estruturação</h2>
+        <p class="text-sm text-corp mb-6">Coloque a auditoria fiscal no ritmo do seu escritório, sem montar time técnico.</p>
+
+        <div class="mb-6">
+          <div class="flex items-baseline gap-1">
+            <span class="text-3xl font-semibold price-num">R$</span>
+            <span class="text-5xl font-bold tracking-tight price-num" data-monthly="497" data-annual="414">497</span>
+            <span class="text-sm text-corp ml-1">/mês</span>
+          </div>
+          <p class="text-xs text-corp mt-1 hidden bill-annual-note">Cobrança anual: R$ 4.968 (2 meses grátis).</p>
+        </div>
+
+        <a href="#demo" class="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-navy text-white text-sm font-semibold hover:bg-navy-700 transition mb-7">
+          Começar pelo Essencial
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <div class="text-xs tracking-[.16em] uppercase text-corp mb-3 pt-6 border-t border-black/5">Inclui</div>
+        <ul class="space-y-3 text-sm text-navy/90 mb-2">
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Auditoria de até <strong>30 CNPJs ativos</strong></span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tributos: <strong>PIS, COFINS, ICMS</strong></span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Histórico de <strong>12 meses</strong> retroativos</span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>3 usuários</strong> simultâneos</span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Importação <strong>XML / SPED</strong></span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Relatórios padrão de inconsistências</span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Suporte por <strong>e-mail</strong></span></li>
+          <li class="flex items-start gap-2.5 text-corp/70"><svg class="w-4 h-4 mt-0.5 text-corp/50 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg><span>Onboarding dedicado</span></li>
+        </ul>
+      </article>
+
+      <!-- PROFISSIONAL (destaque) -->
+      <article class="reveal relative bg-navy text-white rounded-3xl shadow-card-lg p-8 flex flex-col lg:-my-4 lg:scale-[1.02] border border-accent/40 overflow-hidden">
+        <span class="absolute -top-px left-8 right-8 h-px bg-gradient-to-r from-transparent via-accent to-transparent" aria-hidden="true"></span>
+        <div class="absolute inset-0 pattern-a opacity-60 pointer-events-none" aria-hidden="true"></div>
+        <div class="relative">
+          <div class="flex items-center justify-between mb-5">
+            <span class="text-xs tracking-[.18em] uppercase text-accent-400">Profissional</span>
+            <span class="text-[10px] tracking-wider uppercase font-semibold bg-accent text-navy px-2.5 py-1 rounded-full">Mais escolhido</span>
+          </div>
+          <h2 class="text-xl font-bold mb-2">Para o escritório que cresce sem perder controle</h2>
+          <p class="text-sm text-white/70 mb-6">Cobertura completa de tributos, integrações e o histórico que importa para recuperar crédito.</p>
+
+          <div class="mb-6">
+            <div class="flex items-baseline gap-1">
+              <span class="text-3xl font-semibold price-num">R$</span>
+              <span class="text-5xl font-bold tracking-tight price-num" data-monthly="997" data-annual="831">997</span>
+              <span class="text-sm text-white/60 ml-1">/mês</span>
+            </div>
+            <p class="text-xs text-white/55 mt-1 hidden bill-annual-note">Cobrança anual: R$ 9.972 (2 meses grátis).</p>
+          </div>
+
+          <a href="#demo" class="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl bg-accent text-navy text-sm font-semibold hover:bg-accent-500 transition mb-7 shadow-glow">
+            Agendar demonstração
+            <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </a>
+
+          <div class="text-xs tracking-[.16em] uppercase text-white/50 mb-3 pt-6 border-t border-white/10">Tudo do Essencial, e mais</div>
+          <ul class="space-y-3 text-sm text-white/90">
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Auditoria de até <strong>100 CNPJs ativos</strong></span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Tributos: <strong>PIS, COFINS, ICMS, IPI, ISS</strong></span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Histórico de <strong>36 meses</strong> retroativos</span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>10 usuários</strong> simultâneos</span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cruzamentos avançados <strong>NF-e × SPED × ECF</strong></span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Detecção de <strong>créditos não aproveitados</strong></span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>API e <strong>integrações</strong> com sistemas contábeis</span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Suporte por <strong>chat e e-mail</strong></span></li>
+            <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Onboarding guiado em <strong>30 dias</strong></span></li>
+          </ul>
+        </div>
+      </article>
+
+      <!-- ENTERPRISE -->
+      <article class="reveal bg-white rounded-3xl border border-black/5 shadow-card p-8 flex flex-col">
+        <div class="flex items-center justify-between mb-5">
+          <span class="text-xs tracking-[.18em] uppercase text-corp">Enterprise</span>
+          <span class="text-[10px] tracking-wider uppercase text-accent bg-accent/10 px-2 py-1 rounded-full">Sob medida</span>
+        </div>
+        <h2 class="text-xl font-bold mb-2">Para grandes carteiras e operações distribuídas</h2>
+        <p class="text-sm text-corp mb-6">Para escritórios com mais de 100 clientes ativos, múltiplas unidades ou rotinas fiscais complexas.</p>
+
+        <div class="mb-6">
+          <div class="flex items-baseline gap-1">
+            <span class="text-5xl font-bold tracking-tight">Sob</span>
+            <span class="text-3xl font-semibold ml-2">consulta</span>
+          </div>
+          <p class="text-xs text-corp mt-1">Proposta personalizada por volume e escopo.</p>
+        </div>
+
+        <a href="#demo" class="inline-flex items-center justify-center gap-2 w-full px-5 py-3 rounded-xl border border-navy text-navy text-sm font-semibold hover:bg-navy hover:text-white transition mb-7">
+          Falar com especialista
+          <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+
+        <div class="text-xs tracking-[.16em] uppercase text-corp mb-3 pt-6 border-t border-black/5">Tudo do Profissional, e mais</div>
+        <ul class="space-y-3 text-sm text-navy/90">
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>CNPJs ilimitados</strong></span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Cobertura tributária <strong>federal, estadual e municipal</strong></span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Histórico de até <strong>60 meses</strong> (limite legal)</span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Usuários e <strong>perfis ilimitados</strong></span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>SSO, perfis e <strong>trilha de auditoria</strong></span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Relatórios <strong>white-label</strong> com a marca do escritório</span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Integrações sob demanda e <strong>data lake próprio</strong></span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Customer Success dedicado</strong> + SLA contratual</span></li>
+          <li class="flex items-start gap-2.5"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg><span>Onboarding co-construído com seu time</span></li>
+        </ul>
+      </article>
+
+    </div>
+
+    <p class="text-center text-xs text-corp mt-10">Valores em Reais (BRL). Não inclui impostos. Cobrança recorrente via cartão ou boleto.</p>
+  </div>
+</section>
+
+<!-- ═══ STATS BAND ═══ -->
+<section class="bg-navy text-white py-14 border-y border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+    <div class="reveal">
+      <div class="text-3xl md:text-4xl font-bold text-accent">+90%</div>
+      <p class="text-xs md:text-sm text-white/60 mt-2">Redução de tempo em análises fiscais</p>
+    </div>
+    <div class="reveal">
+      <div class="text-3xl md:text-4xl font-bold text-accent">60</div>
+      <p class="text-xs md:text-sm text-white/60 mt-2">Meses de histórico auditável</p>
+    </div>
+    <div class="reveal">
+      <div class="text-3xl md:text-4xl font-bold text-accent">3 min</div>
+      <p class="text-xs md:text-sm text-white/60 mt-2">Para cruzar um período de apuração</p>
+    </div>
+    <div class="reveal">
+      <div class="text-3xl md:text-4xl font-bold text-accent">5</div>
+      <p class="text-xs md:text-sm text-white/60 mt-2">Tributos cobertos no Profissional</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ COMPARATIVO COMPLETO ═══ -->
+<section class="py-24 bg-ice">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-3xl mb-14 reveal">
+      <span class="inline-flex items-center gap-2 text-[11px] tracking-[.18em] uppercase text-accent mb-4">
+        <span class="w-6 h-px bg-accent"></span> Comparativo completo
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Tudo o que está em cada plano.</h2>
+      <p class="mt-4 text-corp">Sem letra miúda. Cada recurso, cada limite, lado a lado.</p>
+    </div>
+
+    <div class="overflow-x-auto -mx-6 lg:mx-0">
+      <div class="min-w-[800px] lg:min-w-0 px-6 lg:px-0">
+        <table class="w-full text-sm border-collapse">
+          <thead>
+            <tr class="border-b-2 border-navy/10">
+              <th scope="col" class="text-left py-5 pr-4 align-bottom">
+                <span class="text-xs tracking-[.16em] uppercase text-corp">Recurso</span>
+              </th>
+              <th scope="col" class="text-center py-5 px-4 align-bottom">
+                <div class="text-xs tracking-[.16em] uppercase text-corp mb-1">Essencial</div>
+                <div class="text-base font-semibold">R$ 497<span class="text-xs text-corp font-normal">/mês</span></div>
+              </th>
+              <th scope="col" class="text-center py-5 px-4 align-bottom bg-navy text-white rounded-t-2xl relative">
+                <div class="text-xs tracking-[.16em] uppercase text-accent-400 mb-1">Profissional</div>
+                <div class="text-base font-semibold">R$ 997<span class="text-xs text-white/60 font-normal">/mês</span></div>
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 text-[10px] tracking-wider uppercase font-semibold bg-accent text-navy px-2.5 py-1 rounded-full whitespace-nowrap">Mais escolhido</span>
+              </th>
+              <th scope="col" class="text-center py-5 px-4 align-bottom">
+                <div class="text-xs tracking-[.16em] uppercase text-corp mb-1">Enterprise</div>
+                <div class="text-base font-semibold">Sob consulta</div>
+              </th>
+            </tr>
+          </thead>
+          <tbody class="text-navy/90">
+
+            <tr class="bg-white/0">
+              <td colspan="4" class="pt-8 pb-3">
+                <span class="text-[11px] tracking-[.18em] uppercase text-corp font-medium">Capacidade</span>
+              </td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">CNPJs ativos auditados</td>
+              <td class="py-3.5 px-4 text-center">Até 30</td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><strong>Até 100</strong></td>
+              <td class="py-3.5 px-4 text-center">Ilimitado</td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Usuários simultâneos</td>
+              <td class="py-3.5 px-4 text-center">3</td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><strong>10</strong></td>
+              <td class="py-3.5 px-4 text-center">Ilimitado</td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Histórico retroativo</td>
+              <td class="py-3.5 px-4 text-center">12 meses</td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><strong>36 meses</strong></td>
+              <td class="py-3.5 px-4 text-center">60 meses</td>
+            </tr>
+
+            <tr>
+              <td colspan="4" class="pt-8 pb-3">
+                <span class="text-[11px] tracking-[.18em] uppercase text-corp font-medium">Tributos cobertos</span>
+              </td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">PIS e COFINS (não-cumulativo)</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">ICMS</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">IPI</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">ISS</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">IBS / CBS (Reforma Tributária)</td>
+              <td class="py-3.5 px-4 text-center text-corp/70 text-xs">Em transição</td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03] text-xs"><strong>Em transição</strong></td>
+              <td class="py-3.5 px-4 text-center text-xs">Em transição</td>
+            </tr>
+
+            <tr>
+              <td colspan="4" class="pt-8 pb-3">
+                <span class="text-[11px] tracking-[.18em] uppercase text-corp font-medium">Inteligência fiscal</span>
+              </td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Cruzamento NF-e × SPED</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Cruzamento avançado com ECF</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Detecção de créditos não aproveitados</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Análise de risco por inconsistência</td>
+              <td class="py-3.5 px-4 text-center">Básica</td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><strong>Avançada</strong></td>
+              <td class="py-3.5 px-4 text-center">Avançada + customizada</td>
+            </tr>
+
+            <tr>
+              <td colspan="4" class="pt-8 pb-3">
+                <span class="text-[11px] tracking-[.18em] uppercase text-corp font-medium">Integrações &amp; relatórios</span>
+              </td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Importação XML / SPED</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">API para sistemas contábeis</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Integrações customizadas</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Relatórios white-label</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Exportação Excel / PDF</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+
+            <tr>
+              <td colspan="4" class="pt-8 pb-3">
+                <span class="text-[11px] tracking-[.18em] uppercase text-corp font-medium">Suporte &amp; segurança</span>
+              </td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Onboarding</td>
+              <td class="py-3.5 px-4 text-center">Self-service</td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><strong>Guiado (30 dias)</strong></td>
+              <td class="py-3.5 px-4 text-center">Co-construído</td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Canal de suporte</td>
+              <td class="py-3.5 px-4 text-center">E-mail</td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><strong>Chat + e-mail</strong></td>
+              <td class="py-3.5 px-4 text-center">CS dedicado + SLA</td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">SLA contratual</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">SSO &amp; controle de perfis</td>
+              <td class="py-3.5 px-4 text-center"><svg class="inline w-5 h-5 text-corp/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg></td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]">Básico</td>
+              <td class="py-3.5 px-4 text-center"><strong>Completo</strong></td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4">Trilha de auditoria (log)</td>
+              <td class="py-3.5 px-4 text-center">30 dias</td>
+              <td class="py-3.5 px-4 text-center bg-navy/[.03]"><strong>12 meses</strong></td>
+              <td class="py-3.5 px-4 text-center">Ilimitado</td>
+            </tr>
+            <tr class="border-t border-black/5">
+              <td class="py-3.5 pr-4 align-top">CTA</td>
+              <td class="py-5 px-4 text-center">
+                <a href="#demo" class="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-navy text-navy text-xs font-semibold hover:bg-navy hover:text-white transition">Começar</a>
+              </td>
+              <td class="py-5 px-4 text-center bg-navy/[.03] rounded-b-2xl">
+                <a href="#demo" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-accent text-navy text-xs font-semibold hover:bg-accent-500 transition shadow-glow">Agendar demo</a>
+              </td>
+              <td class="py-5 px-4 text-center">
+                <a href="#demo" class="inline-flex items-center justify-center px-4 py-2 rounded-lg border border-navy text-navy text-xs font-semibold hover:bg-navy hover:text-white transition">Falar com time</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ INCLUSO EM TODOS ═══ -->
+<section class="py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-3xl mb-12 reveal">
+      <span class="inline-flex items-center gap-2 text-[11px] tracking-[.18em] uppercase text-accent mb-4">
+        <span class="w-6 h-px bg-accent"></span> Incluso em todos os planos
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">O que você não precisa pagar à parte.</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="reveal p-6 rounded-2xl bg-ice border border-black/5">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2L4 5v6c0 5 3.5 9.5 8 11 4.5-1.5 8-6 8-11V5l-8-3z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-semibold mb-2">Dados sob LGPD</h3>
+        <p class="text-sm text-corp">Hospedagem em datacenter brasileiro, criptografia em trânsito e em repouso.</p>
+      </div>
+      <div class="reveal p-6 rounded-2xl bg-ice border border-black/5">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-semibold mb-2">Atualizações automáticas</h3>
+        <p class="text-sm text-corp">Mudanças de legislação refletidas na ferramenta sem custo adicional.</p>
+      </div>
+      <div class="reveal p-6 rounded-2xl bg-ice border border-black/5">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 20v-6m0 0l-4 4m4-4l4 4 M4 12V6a2 2 0 012-2h12a2 2 0 012 2v6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-semibold mb-2">Backup e versionamento</h3>
+        <p class="text-sm text-corp">Histórico de análises preservado, com possibilidade de auditar versões anteriores.</p>
+      </div>
+      <div class="reveal p-6 rounded-2xl bg-ice border border-black/5">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center text-accent mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-semibold mb-2">Documentação técnica</h3>
+        <p class="text-sm text-corp">Manuais, vídeos curtos e base de conhecimento para a equipe do escritório.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section id="faq" class="py-24 bg-ice">
+  <div class="max-w-4xl mx-auto px-6 lg:px-10">
+    <div class="text-center mb-14 reveal">
+      <span class="inline-flex items-center gap-2 text-[11px] tracking-[.18em] uppercase text-accent mb-4">
+        <span class="w-6 h-px bg-accent"></span> Dúvidas frequentes <span class="w-6 h-px bg-accent"></span>
+      </span>
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Sobre cobrança, contratação e mudança de plano.</h2>
+    </div>
+
+    <div class="space-y-3">
+      <details class="group bg-white rounded-2xl border border-black/5 shadow-card reveal" open>
+        <summary class="cursor-pointer list-none px-6 py-5 flex items-start gap-5">
+          <span class="text-accent font-semibold text-sm pt-1">01</span>
+          <span class="flex-1 font-semibold">Como funciona a cobrança?</span>
+          <svg class="chev w-5 h-5 text-corp transition-transform mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 text-sm text-corp pl-[3.25rem]">
+          A cobrança é recorrente, mensal ou anual, via cartão de crédito ou boleto. No plano anual a economia equivale a duas mensalidades. O ciclo de cobrança inicia após o onboarding concluído  você não paga pelo período em que ainda não está usando a plataforma.
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-black/5 shadow-card reveal">
+        <summary class="cursor-pointer list-none px-6 py-5 flex items-start gap-5">
+          <span class="text-accent font-semibold text-sm pt-1">02</span>
+          <span class="flex-1 font-semibold">Existe fidelidade ou multa de cancelamento?</span>
+          <svg class="chev w-5 h-5 text-corp transition-transform mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 text-sm text-corp pl-[3.25rem]">
+          Nos planos Essencial e Profissional, sem fidelidade. O cancelamento pode ser feito a qualquer momento e tem efeito ao final do ciclo de cobrança em curso. No plano anual, a multa é proporcional ao desconto já recebido pelos meses utilizados. No Enterprise, prazos e condições são definidos em contrato.
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-black/5 shadow-card reveal">
+        <summary class="cursor-pointer list-none px-6 py-5 flex items-start gap-5">
+          <span class="text-accent font-semibold text-sm pt-1">03</span>
+          <span class="flex-1 font-semibold">Posso trocar de plano depois?</span>
+          <svg class="chev w-5 h-5 text-corp transition-transform mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 text-sm text-corp pl-[3.25rem]">
+          Pode. Upgrade tem efeito imediato e cobrança proporcional ao período restante. Downgrade tem efeito no próximo ciclo, sem perda de histórico de análises  o que muda é o teto de CNPJs, usuários e cobertura tributária do plano novo.
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-black/5 shadow-card reveal">
+        <summary class="cursor-pointer list-none px-6 py-5 flex items-start gap-5">
+          <span class="text-accent font-semibold text-sm pt-1">04</span>
+          <span class="flex-1 font-semibold">O que está incluído no onboarding?</span>
+          <svg class="chev w-5 h-5 text-corp transition-transform mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 text-sm text-corp pl-[3.25rem]">
+          No Essencial, onboarding self-service com base de conhecimento e tutoriais. No Profissional, onboarding guiado em até 30 dias com reuniões de configuração, importação inicial dos dados e treinamento da equipe. No Enterprise, é co-construído com seu time  incluindo integrações, perfis customizados e treinamento por unidade.
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-black/5 shadow-card reveal">
+        <summary class="cursor-pointer list-none px-6 py-5 flex items-start gap-5">
+          <span class="text-accent font-semibold text-sm pt-1">05</span>
+          <span class="flex-1 font-semibold">Como vocês cobram CNPJs adicionais acima do plano?</span>
+          <svg class="chev w-5 h-5 text-corp transition-transform mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 text-sm text-corp pl-[3.25rem]">
+          CNPJs adicionais são cobrados por pacote, com valor que reduz conforme o volume. Quando o crescimento é constante, é mais vantajoso migrar para o plano superior em vez de empilhar pacotes  o time comercial avalia o cenário e indica a melhor configuração.
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-black/5 shadow-card reveal">
+        <summary class="cursor-pointer list-none px-6 py-5 flex items-start gap-5">
+          <span class="text-accent font-semibold text-sm pt-1">06</span>
+          <span class="flex-1 font-semibold">Os dados continuam acessíveis se eu cancelar?</span>
+          <svg class="chev w-5 h-5 text-corp transition-transform mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 text-sm text-corp pl-[3.25rem]">
+          No cancelamento, o escritório tem 90 dias para exportar relatórios, planilhas e arquivos consolidados. Após esse período, os dados são removidos conforme política de LGPD. Backups e exportações em massa podem ser solicitados ao suporte a qualquer momento durante o contrato.
+        </div>
+      </details>
+
+      <details class="group bg-white rounded-2xl border border-black/5 shadow-card reveal">
+        <summary class="cursor-pointer list-none px-6 py-5 flex items-start gap-5">
+          <span class="text-accent font-semibold text-sm pt-1">07</span>
+          <span class="flex-1 font-semibold">Vocês emitem nota fiscal?</span>
+          <svg class="chev w-5 h-5 text-corp transition-transform mt-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </summary>
+        <div class="px-6 pb-6 -mt-1 text-sm text-corp pl-[3.25rem]">
+          Sim. Emitimos NFS-e a cada cobrança, com retenção de impostos quando aplicável. Empresas optantes pelo Simples Nacional, Lucro Presumido e Lucro Real são todas atendidas no mesmo modelo de faturamento.
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section id="demo" class="relative overflow-hidden bg-navy text-white py-24">
+  <div class="absolute inset-0 grid-bg opacity-60"></div>
+  <div class="absolute inset-0 pattern-a opacity-50"></div>
+  <span class="blob bg-accent/40 w-[420px] h-[420px] -top-32 -left-32" aria-hidden="true"></span>
+  <span class="blob bg-accent/20 w-[380px] h-[380px] bottom-0 -right-20" aria-hidden="true"></span>
+
+  <div class="relative max-w-4xl mx-auto px-6 lg:px-10 text-center">
+    <h2 class="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
+      Ainda na dúvida sobre o plano <span class="text-accent">certo?</span>
+    </h2>
+    <p class="mt-5 text-white/70 text-lg max-w-2xl mx-auto">
+      Em 30 minutos de conversa o time comercial entende o tamanho da carteira, os tributos relevantes e indica a configuração que faz sentido para o seu escritório.
+    </p>
+    <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-3">
+      <a href="#demo" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl bg-accent text-navy font-semibold hover:bg-accent-500 transition shadow-glow">
+        Agendar demonstração
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="conteudo.html" class="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl border border-white/20 text-white/90 hover:bg-white/5 transition">
+        Ler conteúdos antes
+      </a>
+    </div>
+    <p class="mt-6 text-xs text-white/40">Sem compromisso · Setup orientado pelo time MeuAuditor · Resposta em até 1 dia útil</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="bg-navy-800 text-white border-t border-white/5" role="contentinfo">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <a href="index.html" class="flex items-center gap-2.5 mb-5"><img class="official-logo" src="assets/logo/logo-light.png" alt="MeuAuditor"></a>
+      <p class="text-sm text-white/60 max-w-sm">Sua auditoria tributária automatizada. Inteligência fiscal para o seu escritório auditar com mais eficiência.</p>
+      <div class="mt-6 flex items-center gap-3">
+        <a href="#" class="w-9 h-9 rounded-lg border border-white/10 hover:bg-white/5 transition flex items-center justify-center" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 text-white" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5.01A2.5 2.5 0 014.98 3.5zM3 9h4v12H3V9zm7 0h3.8v1.71h.05c.53-1 1.83-2.06 3.77-2.06 4.04 0 4.78 2.66 4.78 6.12V21h-4v-5.42c0-1.29-.02-2.95-1.8-2.95-1.8 0-2.08 1.4-2.08 2.85V21h-4V9z"/></svg>
+        </a>
+        <a href="#" class="w-9 h-9 rounded-lg border border-white/10 hover:bg-white/5 transition flex items-center justify-center" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 text-white" fill="currentColor" aria-hidden="true"><path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 01-1.38-.9 3.7 3.7 0 01-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.51.01-4.75.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.04C2.67 8.49 2.66 8.86 2.66 12s.01 3.51.07 4.75c.05 1.07.23 1.65.38 2.04.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.04.38 1.24.06 1.61.07 4.75.07s3.51-.01 4.75-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.04.06-1.24.07-1.61.07-4.75s-.01-3.51-.07-4.75c-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.83-1.27a3.4 3.4 0 00-1.27-.83c-.39-.15-.97-.33-2.04-.38C15.51 4.01 15.14 4 12 4zM12 7.4a4.6 4.6 0 110 9.2 4.6 4.6 0 010-9.2zm0 1.8a2.8 2.8 0 100 5.6 2.8 2.8 0 000-5.6zM17.8 6a1.1 1.1 0 110 2.2 1.1 1.1 0 010-2.2z"/></svg>
+        </a>
+        <a href="#" class="w-9 h-9 rounded-lg border border-white/10 hover:bg-white/5 transition flex items-center justify-center" aria-label="YouTube">
+          <svg viewBox="0 0 24 24" class="w-4 h-4 text-white" fill="currentColor" aria-hidden="true"><path d="M23.5 6.2a3 3 0 00-2.1-2.1C19.6 3.5 12 3.5 12 3.5s-7.6 0-9.4.6A3 3 0 00.5 6.2 31.4 31.4 0 000 12a31.4 31.4 0 00.5 5.8 3 3 0 002.1 2.1C4.4 20.5 12 20.5 12 20.5s7.6 0 9.4-.6a3 3 0 002.1-2.1A31.4 31.4 0 0024 12a31.4 31.4 0 00-.5-5.8zM9.6 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Plataforma</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="index.html" class="hover:text-white">Visão geral</a></li>
+        <li><a href="planos.html" class="hover:text-white">Planos</a></li>
+        <li><a href="#demo" class="hover:text-white">Agendar demo</a></li>
+        <li><a href="#login" class="hover:text-white">Fazer login</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Empresa</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="quem-somos.html" class="hover:text-white">Quem somos</a></li>
+        <li><a href="conteudo.html" class="hover:text-white">Conteúdo</a></li>
+        <li><a href="#" class="hover:text-white">Suporte</a></li>
+        <li><a href="#" class="hover:text-white">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Legal</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="#" class="hover:text-white">Termos de uso</a></li>
+        <li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
+        <li><a href="#" class="hover:text-white">Segurança</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <p>© MeuAuditor  Todos os direitos reservados | 2026</p>
+      <p>F2T Tecnologia Tributária · Sua auditoria tributária automatizada</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  // Mobile menu
+  var btn = document.getElementById('navBtn'), menu = document.getElementById('mobileMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+    menu.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){ menu.classList.add('hidden'); btn.setAttribute('aria-expanded','false'); });
+    });
+  }
+  // Reveal on scroll
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+      });
+    },{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+  // Billing toggle
+  var mBtn = document.getElementById('billMonthly');
+  var aBtn = document.getElementById('billAnnual');
+  var priceEls = document.querySelectorAll('.price-num[data-monthly]');
+  var annualNotes = document.querySelectorAll('.bill-annual-note');
+  function setBilling(mode){
+    var isAnnual = mode === 'annual';
+    priceEls.forEach(function(el){
+      el.textContent = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+    });
+    annualNotes.forEach(function(el){
+      el.classList.toggle('hidden', !isAnnual);
+    });
+    if (isAnnual){
+      aBtn.classList.add('bg-white','text-navy'); aBtn.classList.remove('text-white/80');
+      mBtn.classList.remove('bg-white','text-navy'); mBtn.classList.add('text-white/80');
+      aBtn.setAttribute('aria-pressed','true'); mBtn.setAttribute('aria-pressed','false');
+    } else {
+      mBtn.classList.add('bg-white','text-navy'); mBtn.classList.remove('text-white/80');
+      aBtn.classList.remove('bg-white','text-navy'); aBtn.classList.add('text-white/80');
+      mBtn.setAttribute('aria-pressed','true'); aBtn.setAttribute('aria-pressed','false');
+    }
+  }
+  if (mBtn && aBtn){
+    mBtn.addEventListener('click', function(){ setBilling('monthly'); });
+    aBtn.addEventListener('click', function(){ setBilling('annual'); });
+  }
+})();
+</script>
+
+<script src="assets/js/editor-mode.js"></script>
+</body>
+</html>

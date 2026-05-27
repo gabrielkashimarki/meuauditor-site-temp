@@ -1,0 +1,369 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Quem somos  MeuAuditor</title>
+<meta name="description" content="MeuAuditor é uma plataforma SaaS de auditoria fiscal automatizada criada para devolver autonomia, método e clareza ao escritório contábil brasileiro.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy:   { DEFAULT:'#12324A', 900:'#0B2538', 800:'#12324A', 700:'#1D4663' },
+          accent: { DEFAULT:'#19B5E8', 600:'#19B5E8', 500:'#41C4EE', 400:'#7BD7F2' },
+          ice:    '#F9F9F9',
+          corp:   '#4F5963',
+        },
+        fontFamily: { sans: ['"Space Grotesk"','system-ui','sans-serif'] },
+        boxShadow: {
+          'card': '0 1px 2px rgba(79,89,99,.04), 0 8px 24px rgba(79,89,99,.06)',
+          'card-lg': '0 24px 60px -20px rgba(79,89,99,.25)',
+          'glow': '0 0 0 1px rgba(25,181,232,.25), 0 8px 32px rgba(25,181,232,.18)',
+        }
+      }
+    }
+  }
+</script>
+<style>
+  @font-face { font-family: "Space Grotesk"; src: url("assets/fonts/SpaceGrotesk-VariableFont_wght.ttf") format("truetype"); font-weight: 300 700; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Gotham"; src: url("assets/fonts/Gotham-Book.woff2") format("woff2"); font-weight: 400; font-style: normal; font-display: swap; }
+  @font-face { font-family: "Gotham"; src: url("assets/fonts/Gotham-Bold.woff2") format("woff2"); font-weight: 700; font-style: normal; font-display: swap; }
+  .official-logo { display:block; width:auto; height:38px; object-fit:contain; }
+  footer .official-logo { height:42px; }
+  .bg-navy, .bg-navy\/85, .bg-navy-800, .bg-navy-800\/80, .bg-navy-700, .bg-navy-700\/60 { background-color:#12324A !important; }
+  .hover\:bg-navy:hover, .hover\:bg-navy-700:hover { background-color:#0B2538 !important; }
+  .text-navy { color:#12324A !important; }
+  html { scroll-behavior: smooth; }
+  body { font-family:'Space Grotesk',system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
+  .skip-link { position:absolute; left:-9999px; top:auto; }
+  .skip-link:focus { left:1rem; top:1rem; z-index:99; background:#19B5E8; color:#12324A; padding:.5rem 1rem; border-radius:.5rem; }
+  *:focus-visible { outline:2px solid #19B5E8; outline-offset:3px; border-radius:4px; }
+  .nav-blur { backdrop-filter: blur(14px) saturate(160%); -webkit-backdrop-filter: blur(14px) saturate(160%); }
+  .grid-bg { background-image: linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px); background-size: 48px 48px; }
+  .blob { position:absolute; border-radius:9999px; filter:blur(80px); opacity:.4; pointer-events:none; }
+  .reveal { opacity:0; transform:translateY(24px); transition:opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity:1; transform:translateY(0); }
+  .pattern-a {
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><path d='M16 52 L16 44 L26 22 L34 22 L48 50 L48 52 L40 52 L40 44 L30 44 L28 52 Z' fill='%23ffffff' fill-opacity='.04'/></svg>");
+    background-size: 64px 64px;
+  }
+  @media (prefers-reduced-motion: reduce){ .reveal { transition:none; opacity:1; transform:none; } }
+</style>
+</head>
+<body class="bg-ice text-navy">
+
+<a href="#main-content" class="skip-link">Pular para o conteúdo</a>
+
+<!-- ═══ NAV ═══ -->
+<header class="fixed top-0 inset-x-0 z-50 nav-blur bg-navy/85 border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 h-16 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2.5" aria-label="MeuAuditor  Página inicial"><img class="official-logo" src="assets/logo/logo-light.png" alt="MeuAuditor"></a>
+    <nav class="hidden lg:flex items-center gap-9 text-sm text-white/70" aria-label="Principal">
+      <a href="index.html" class="hover:text-white transition">Início</a>
+      <a href="quem-somos.html" class="text-white">Quem somos</a>
+      <a href="conteudo.html" class="hover:text-white transition">Conteúdo</a>
+      <a href="planos.html" class="hover:text-white transition">Planos</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="#login" class="hidden sm:inline-flex items-center text-sm text-white/80 hover:text-white px-3 py-2 rounded-lg">Entrar</a>
+      <a href="index.html#demo" class="inline-flex items-center text-sm font-medium text-navy bg-accent hover:bg-accent-500 transition px-4 py-2 rounded-lg shadow-glow">Agendar demonstração</a>
+      <button id="navBtn" class="lg:hidden p-2 -mr-2 text-white" aria-label="Abrir menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg viewBox="0 0 24 24" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="lg:hidden hidden border-t border-white/10 bg-navy">
+    <nav class="px-6 py-4 flex flex-col gap-3 text-sm text-white/80" aria-label="Menu mobile">
+      <a href="index.html" class="py-1.5">Início</a>
+      <a href="quem-somos.html" class="py-1.5 text-white">Quem somos</a>
+      <a href="conteudo.html" class="py-1.5">Conteúdo</a>
+      <a href="planos.html" class="py-1.5">Planos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main-content">
+
+<!-- ═══ HERO ═══ -->
+<section class="relative overflow-hidden bg-navy text-white pt-28 pb-16 lg:pt-36 lg:pb-24">
+  <div class="absolute inset-0 grid-bg opacity-50"></div>
+  <div class="absolute inset-0 pattern-a opacity-50"></div>
+  <span class="blob bg-accent/40 w-[460px] h-[460px] -top-32 right-0" aria-hidden="true"></span>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10">
+    <p class="text-xs tracking-[.22em] uppercase text-accent">Quem somos</p>
+    <h1 class="mt-4 text-4xl md:text-6xl font-bold tracking-tight leading-[1.05] max-w-4xl">
+      Tecnologia que devolve <span class="text-accent">autonomia</span> ao escritório contábil brasileiro.
+    </h1>
+    <p class="mt-8 text-lg text-white/70 max-w-2xl">
+      O MeuAuditor nasceu dentro da rotina real de quem opera tributos no Brasil  onde o tempo é curto, o erro custa caro e a regra muda antes mesmo de virar rotina.
+    </p>
+  </div>
+</section>
+
+<!-- ═══ STATS BAND ═══ -->
+<section class="bg-navy-800 text-white border-y border-white/5 py-14">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid grid-cols-2 lg:grid-cols-4 gap-y-8">
+    <div class="text-center reveal">
+      <p class="text-3xl md:text-4xl font-bold tracking-tight">+90%</p>
+      <p class="mt-2 text-sm text-white/60">menos tempo em auditoria fiscal</p>
+    </div>
+    <div class="text-center reveal">
+      <p class="text-3xl md:text-4xl font-bold tracking-tight text-accent">60 meses</p>
+      <p class="mt-2 text-sm text-white/60">de histórico processados</p>
+    </div>
+    <div class="text-center reveal">
+      <p class="text-3xl md:text-4xl font-bold tracking-tight">3 min</p>
+      <p class="mt-2 text-sm text-white/60">do XML ao relatório final</p>
+    </div>
+    <div class="text-center reveal">
+      <p class="text-3xl md:text-4xl font-bold tracking-tight text-accent">5 tributos</p>
+      <p class="mt-2 text-sm text-white/60">auditados em paralelo</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ MANIFESTO ═══ -->
+<section class="bg-white py-20 lg:py-28 border-b border-black/[0.06]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-start">
+    <div class="lg:col-span-5 lg:sticky lg:top-28 reveal">
+      <span class="text-xs tracking-[.18em] uppercase text-accent font-medium">Manifesto</span>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+        A rotina fiscal não pode continuar manual em 2026.
+      </h2>
+    </div>
+    <div class="lg:col-span-7 space-y-6 text-corp leading-relaxed reveal">
+      <p>O escritório contábil brasileiro carrega há décadas uma operação técnica, burocrática, complexa e refém da planilha. O trabalho duro está na conferência: cruzar XMLs, conferir SPEDs, validar apurações, encontrar divergências antes que elas virem multa.</p>
+      <p>Esse trabalho é onde mais erra, onde mais consome tempo e onde menos o cliente percebe valor.</p>
+      <p>O <strong class="text-navy">MeuAuditor</strong> existe para inverter essa equação. Automatizamos o cruzamento. Organizamos o risco. Aceleramos a análise. O contador deixa de operar e passa a auditar  com método, prova e tempo para pensar.</p>
+      <p>A plataforma não substitui o contador. <strong class="text-navy">Fortalece o escritório.</strong> Coloca o conhecimento técnico dentro do software e devolve à equipe o que ela perdia em planilha: tempo para decidir, tempo para o cliente, tempo para crescer.</p>
+      <p>Esse é o nosso compromisso: tecnologia que parece feita por quem entende de contabilidade brasileira  porque foi.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ POSICIONAMENTO  O QUE A MARCA FAZ E NÃO FAZ ═══ -->
+<section class="bg-ice py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-3xl reveal">
+      <span class="text-xs tracking-[.18em] uppercase text-accent font-medium">Posicionamento</span>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+        O que o MeuAuditor é. E o que não é.
+      </h2>
+    </div>
+    <div class="mt-12 grid md:grid-cols-2 gap-5">
+      <div class="reveal p-7 rounded-2xl bg-white border border-black/[0.06] shadow-card">
+        <p class="font-mono text-xs uppercase tracking-widest text-corp">Não somos</p>
+        <ul class="mt-5 space-y-3 text-corp text-sm">
+          <li class="flex gap-3"><span class="text-corp/40 mt-2 w-1 h-1 rounded-full bg-corp/30"></span> Substituto do contador</li>
+          <li class="flex gap-3"><span class="text-corp/40 mt-2 w-1 h-1 rounded-full bg-corp/30"></span> Mais um ERP antigo com promessas de modernização</li>
+          <li class="flex gap-3"><span class="text-corp/40 mt-2 w-1 h-1 rounded-full bg-corp/30"></span> Uma consultoria que vende projeto pontual</li>
+          <li class="flex gap-3"><span class="text-corp/40 mt-2 w-1 h-1 rounded-full bg-corp/30"></span> Software que para em "gerar relatório"</li>
+        </ul>
+      </div>
+      <div class="reveal p-7 rounded-2xl bg-navy text-white border border-white/10 shadow-card">
+        <p class="font-mono text-xs uppercase tracking-widest text-accent">Somos</p>
+        <ul class="mt-5 space-y-3 text-white/85 text-sm">
+          <li class="flex gap-3"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Plataforma SaaS de auditoria fiscal automatizada</li>
+          <li class="flex gap-3"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Ferramenta de autonomia para o escritório contábil</li>
+          <li class="flex gap-3"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Marca moderna, escalável e tecnológica</li>
+          <li class="flex gap-3"><svg class="w-4 h-4 mt-0.5 text-accent shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg> Solução prática para análise tributária do dia a dia</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VALORES ═══ -->
+<section class="bg-white py-20 lg:py-28 border-y border-black/[0.06]">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10">
+    <div class="max-w-3xl reveal">
+      <span class="text-xs tracking-[.18em] uppercase text-accent font-medium">O que nos move</span>
+      <h2 class="mt-3 text-3xl md:text-4xl font-bold tracking-tight leading-tight">
+        Princípios que orientam cada linha de código e cada conversa com cliente.
+      </h2>
+    </div>
+
+    <div class="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      <article class="reveal p-6 rounded-2xl bg-ice border border-black/[0.06]">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v20M2 12h20" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-semibold tracking-tight">Controle, não dependência</h3>
+        <p class="mt-2 text-sm text-corp leading-relaxed">O escritório opera dono do dado, da decisão e do cliente  a tecnologia executa.</p>
+      </article>
+      <article class="reveal p-6 rounded-2xl bg-ice border border-black/[0.06]">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 2L3 9l9 13 9-13-6-7H9z" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-semibold tracking-tight">Inteligência, não força bruta</h3>
+        <p class="mt-2 text-sm text-corp leading-relaxed">Cada cruzamento foi pensado em conjunto com auditores e fiscalistas reais.</p>
+      </article>
+      <article class="reveal p-6 rounded-2xl bg-ice border border-black/[0.06]">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2l8 4v6c0 5-3.5 9-8 10-4.5-1-8-5-8-10V6l8-4z" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-semibold tracking-tight">Segurança como base</h3>
+        <p class="mt-2 text-sm text-corp leading-relaxed">Dados criptografados, trilha de auditoria por usuário, conformidade com a LGPD.</p>
+      </article>
+      <article class="reveal p-6 rounded-2xl bg-ice border border-black/[0.06]">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 12a9 9 0 0118 0M21 12a9 9 0 01-18 0M12 3v18" stroke-linecap="round"/></svg>
+        </div>
+        <h3 class="font-semibold tracking-tight">Clareza sem jargão</h3>
+        <p class="mt-2 text-sm text-corp leading-relaxed">Interface que qualquer analista fiscal entende no primeiro dia de uso.</p>
+      </article>
+      <article class="reveal p-6 rounded-2xl bg-ice border border-black/[0.06]">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 17l6-6 4 4 8-8" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h7v7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-semibold tracking-tight">Evolução contínua</h3>
+        <p class="mt-2 text-sm text-corp leading-relaxed">Novos cruzamentos e funcionalidades mensais, ouvindo quem usa todos os dias.</p>
+      </article>
+      <article class="reveal p-6 rounded-2xl bg-ice border border-black/[0.06]">
+        <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center mb-4">
+          <svg viewBox="0 0 24 24" class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 00-4-4H7a4 4 0 00-4 4v2M21 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75M9 11a4 4 0 100-8 4 4 0 000 8z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3 class="font-semibold tracking-tight">Pessoas no centro</h3>
+        <p class="mt-2 text-sm text-corp leading-relaxed">Suporte humano, onboarding com treinamento real, decisões guiadas por quem usa.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ORIGEM ═══ -->
+<section class="bg-navy text-white py-20 lg:py-28 relative overflow-hidden">
+  <div class="absolute inset-0 grid-bg opacity-40"></div>
+  <span class="blob bg-accent/30 w-[440px] h-[440px] bottom-0 -right-32" aria-hidden="true"></span>
+
+  <div class="relative max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-12 gap-12 items-center">
+    <div class="lg:col-span-7 reveal">
+      <span class="text-xs tracking-[.18em] uppercase text-accent">Nossa origem</span>
+      <h2 class="mt-3 text-3xl md:text-5xl font-bold tracking-tight leading-[1.1]">
+        Construído em Curitiba. <br class="hidden md:block">Pensado para o Brasil inteiro.
+      </h2>
+      <p class="mt-6 text-white/70 max-w-xl">
+        O MeuAuditor nasce da F2T Tecnologia Tributária, uma operação focada em transformar prática tributária em software. A escolha de começar pelo escritório de contabilidade não é acaso  é onde o impacto da automação é mais imediato e onde a dor é mais bem mapeada.
+      </p>
+      <p class="mt-4 text-white/70 max-w-xl">
+        Ouvimos diariamente quem audita, quem retifica, quem responde fiscalização. A plataforma cresce a partir desse fluxo: a sala do escritório informa a próxima feature.
+      </p>
+      <div class="mt-8 inline-flex items-center gap-3 px-4 py-3 rounded-lg border border-white/10 bg-white/[.03]">
+        <svg viewBox="0 0 24 24" class="w-5 h-5 text-accent" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2C8 6 6 9 6 12a6 6 0 0012 0c0-3-2-6-6-10z" stroke-linejoin="round"/></svg>
+        <p class="text-sm"><span class="text-white/50">Sede ·</span> Curitiba/PR · Brasil</p>
+      </div>
+    </div>
+    <div class="lg:col-span-5 reveal">
+      <div class="rounded-2xl border border-white/10 bg-white/[.03] p-6">
+        <p class="text-xs tracking-[.18em] uppercase text-accent mb-5">Linha do tempo</p>
+        <ol class="space-y-5">
+          <li class="flex gap-4">
+            <span class="font-mono text-sm text-accent shrink-0 w-12">2024</span>
+            <p class="text-sm text-white/75">Operação F2T se reposiciona como tax-tech focada em escritórios contábeis.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="font-mono text-sm text-accent shrink-0 w-12">2025</span>
+            <p class="text-sm text-white/75">Primeiros cruzamentos automatizados de PIS, COFINS e ICMS validados em produção.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="font-mono text-sm text-accent shrink-0 w-12">2026</span>
+            <p class="text-sm text-white/75">Lançamento do MeuAuditor: auditoria tributária automatizada como produto SaaS.</p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section class="bg-ice py-20 lg:py-28">
+  <div class="max-w-5xl mx-auto px-6 lg:px-10 text-center reveal">
+    <h2 class="text-3xl md:text-5xl font-bold tracking-tight leading-[1.05]">
+      Veja o MeuAuditor operando com dados do seu escritório.
+    </h2>
+    <p class="mt-6 text-corp max-w-2xl mx-auto">Uma sessão de 30 minutos com o time técnico para mostrar a plataforma processando arquivos reais  e quanto tempo você recupera por mês.</p>
+    <div class="mt-9 flex flex-wrap items-center justify-center gap-3">
+      <a href="index.html#demo" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-navy text-white font-semibold hover:bg-navy-700 transition">
+        Agendar demonstração
+        <svg viewBox="0 0 24 24" class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="planos.html" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl border border-navy/15 text-navy hover:bg-white transition">
+        Ver planos
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="bg-navy-800 text-white border-t border-white/5" role="contentinfo">
+  <div class="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid md:grid-cols-2 lg:grid-cols-5 gap-10">
+    <div class="lg:col-span-2">
+      <a href="index.html" class="flex items-center gap-2.5 mb-5"><img class="official-logo" src="assets/logo/logo-light.png" alt="MeuAuditor"></a>
+      <p class="text-sm text-white/60 max-w-sm">Sua auditoria tributária automatizada. Inteligência fiscal para o seu escritório auditar com mais eficiência.</p>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Plataforma</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="index.html" class="hover:text-white">Visão geral</a></li>
+        <li><a href="planos.html" class="hover:text-white">Planos</a></li>
+        <li><a href="index.html#demo" class="hover:text-white">Agendar demo</a></li>
+        <li><a href="#login" class="hover:text-white">Fazer login</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Empresa</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="quem-somos.html" class="hover:text-white">Quem somos</a></li>
+        <li><a href="conteudo.html" class="hover:text-white">Conteúdo</a></li>
+        <li><a href="#" class="hover:text-white">Suporte</a></li>
+        <li><a href="#" class="hover:text-white">Contato</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="text-xs tracking-[.18em] uppercase text-white/40 mb-4">Legal</h4>
+      <ul class="space-y-2.5 text-sm text-white/70">
+        <li><a href="#" class="hover:text-white">Termos de uso</a></li>
+        <li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
+        <li><a href="#" class="hover:text-white">Segurança</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6 lg:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-3 text-xs text-white/50">
+      <p>© MeuAuditor  Todos os direitos reservados | 2026</p>
+      <p>F2T Tecnologia Tributária · Sua auditoria tributária automatizada</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+  var btn = document.getElementById('navBtn'), menu = document.getElementById('mobileMenu');
+  if (btn && menu) {
+    btn.addEventListener('click', function(){
+      var open = menu.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  }
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.15});
+    document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
+  }
+})();
+</script>
+
+<script src="assets/js/editor-mode.js"></script>
+</body>
+</html>
