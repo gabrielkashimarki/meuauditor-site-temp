@@ -2,6 +2,11 @@
   'use strict';
 
   var EDITOR_PASSWORD = 'meuauditor2026';
+  var DEFAULT_GITHUB_CONFIG = {
+    owner: 'gabrielkashimarki',
+    repo: 'meuauditor-site-temp',
+    branch: 'main'
+  };
   var storageKey = 'meuauditor-editor:' + window.location.pathname;
   var configKey = 'meuauditor-github-config';
   var authKey = 'meuauditor-editor-auth';
@@ -134,9 +139,9 @@
 
   function loadConfig(){
     try {
-      return JSON.parse(window.localStorage.getItem(configKey) || '{}');
+      return Object.assign({}, DEFAULT_GITHUB_CONFIG, JSON.parse(window.localStorage.getItem(configKey) || '{}'));
     } catch (error) {
-      return {};
+      return Object.assign({}, DEFAULT_GITHUB_CONFIG);
     }
   }
 
