@@ -68,12 +68,12 @@ module.exports = async function handler(req, res) {
   const baseUrl = `https://api.github.com/repos/${encodeURIComponent(owner)}/${encodeURIComponent(repo)}/contents/${encodedPath}`;
   const authHeaders = { Authorization: `Bearer ${githubToken}` };
 
-  try {
+  async function commitWithLatestSha() {
     const current = await githubRequest(`${baseUrl}?ref=${encodeURIComponent(branch)}`, {
       headers: authHeaders,
     });
 
-    const result = await githubRequest(baseUrl, {
+    return githubRequest(baseUrl, {
       method: 'PUT',
       headers: {
         ...authHeaders,
@@ -86,6 +86,18 @@ module.exports = async function handler(req, res) {
         branch,
       }),
     });
+  }
+
+  try {
+    let result;
+    try {
+      result = await commitWithLatestSha();
+    } catch (error) {
+      if (!/does not match/i.test(error.message)) {
+        throw error;
+      }
+      result = await commitWithLatestSha();
+    }
 
     return send(res, 200, {
       ok: true,
