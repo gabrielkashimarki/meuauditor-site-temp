@@ -32,6 +32,7 @@
   var isEditing = false;
   var panel;
   var status;
+  var setupMode = new URLSearchParams(window.location.search).get('setup') === '1';
 
   function getEditableElements(){
     return Array.prototype.slice.call(document.querySelectorAll(editableSelector)).filter(function(el){
@@ -177,7 +178,8 @@
   function getConfigOrPrompt(){
     var config = loadConfig();
     if (!config.owner || !config.repo || !config.branch || !config.filePath || !config.token) {
-      return showConfig();
+      setStatus('Configuração inicial pendente. Abra esta página com ?setup=1 para configurar uma vez.');
+      return null;
     }
     return config;
   }
@@ -270,7 +272,7 @@
       '<button type="button" data-editor-toggle>Editor</button>',
       '<button type="button" class="secondary" data-editor-save>Salvar local</button>',
       '<button type="button" class="success" data-editor-github>Salvar no GitHub</button>',
-      '<button type="button" class="secondary" data-editor-config>Configurar GitHub</button>',
+      setupMode ? '<button type="button" class="secondary" data-editor-config>Configurar GitHub</button>' : '',
       '<button type="button" class="secondary" data-editor-export>Exportar HTML</button>',
       '<button type="button" class="danger" data-editor-clear>Limpar</button>',
       '<span class="editor-status" data-editor-status></span>'
@@ -287,9 +289,12 @@
     panel.querySelector('[data-editor-github]').addEventListener('click', function(){
       if (unlockEditor()) saveToGithub();
     });
-    panel.querySelector('[data-editor-config]').addEventListener('click', function(){
-      if (unlockEditor()) showConfig();
-    });
+    var configButton = panel.querySelector('[data-editor-config]');
+    if (configButton) {
+      configButton.addEventListener('click', function(){
+        if (unlockEditor()) showConfig();
+      });
+    }
     panel.querySelector('[data-editor-export]').addEventListener('click', function(){
       if (unlockEditor()) exportHtml();
     });
