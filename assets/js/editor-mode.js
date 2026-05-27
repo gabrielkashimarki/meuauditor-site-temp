@@ -2,6 +2,7 @@
   'use strict';
 
   var EDITOR_PASSWORD = 'meuauditor2026';
+  var SAVE_API_URL = window.MEUAUDITOR_SAVE_API || 'https://site-f2t.vercel.app/api/save';
   var DEFAULT_GITHUB_CONFIG = {
     owner: 'gabrielkashimarki',
     repo: 'meuauditor-site-temp',
@@ -10,6 +11,7 @@
   var storageKey = 'meuauditor-editor:' + window.location.pathname;
   var configKey = 'meuauditor-github-config';
   var authKey = 'meuauditor-editor-auth';
+  var passwordKey = 'meuauditor-editor-password';
   var editableSelector = [
     'header a',
     'main h1',
@@ -210,6 +212,11 @@
 
   function saveToGithub(){
     saveContent();
+    if (SAVE_API_URL) {
+      saveToBackend();
+      return;
+    }
+
     var config = getConfigOrPrompt();
     if (!config) return;
 
@@ -239,11 +246,48 @@
     });
   }
 
+  function currentFilePath(){
+    var path = window.location.pathname.split('/').pop();
+    return path && path.indexOf('.') > -1 ? path : 'index.html';
+  }
+
+  function saveToBackend(){
+    var password = window.sessionStorage.getItem(passwordKey);
+    if (!password) {
+      setStatus('Digite a senha novamente antes de salvar.');
+      return;
+    }
+
+    setStatus('Salvando no GitHub...');
+    window.fetch(SAVE_API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        password: password,
+        filePath: currentFilePath(),
+        html: getCleanHtml()
+      })
+    }).then(function(response){
+      return response.text().then(function(text){
+        var data = text ? JSON.parse(text) : {};
+        if (!response.ok) {
+          throw new Error(data.error || 'Erro ao salvar.');
+        }
+        return data;
+      });
+    }).then(function(data){
+      setStatus(data.commitUrl ? 'Salvo no GitHub.' : 'Salvo.');
+    }).catch(function(error){
+      setStatus('Erro ao salvar: ' + error.message);
+    });
+  }
+
   function unlockEditor(){
     if (window.sessionStorage.getItem(authKey) === 'ok') return true;
     var password = window.prompt('Senha do editor');
     if (password === EDITOR_PASSWORD) {
       window.sessionStorage.setItem(authKey, 'ok');
+      window.sessionStorage.setItem(passwordKey, password);
       return true;
     }
     if (password !== null) window.alert('Senha incorreta.');
